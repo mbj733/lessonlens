@@ -1,0 +1,459 @@
+{
+  "schema": "lessonlens/scene@1",
+  "deck": {
+    "id": "en-04-shortest-paths",
+    "title": "Shortest Paths in Graphs",
+    "lang": "en",
+    "pages": 10,
+    "source": "eval/slides/en-04-shortest-paths.pdf"
+  },
+  "objects": [
+    {
+      "id": "o01",
+      "label": "Given a weighted graph",
+      "primitive": "sphere",
+      "position": [
+        -4.05,
+        0.45,
+        -2.7
+      ],
+      "scale": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "color": "#4e79a7",
+      "page": 1,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "Given a weighted graph, find the minimum-cost path from a source s to every vertex.",
+          "quote": "Given a weighted graph, find the minimum-cost path from a source s to every vertex.",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "o02",
+      "label": "BFS explores vertices in order of hop count.",
+      "primitive": "sphere",
+      "position": [
+        -1.35,
+        0.504,
+        -2.7
+      ],
+      "scale": [
+        1.12,
+        1.008,
+        1.12
+      ],
+      "color": "#f28e2b",
+      "page": 2,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "BFS explores vertices in order of hop count.",
+          "quote": "BFS explores vertices in order of hop count.",
+          "page": 2
+        }
+      ]
+    },
+    {
+      "id": "o03",
+      "label": "Keep a tentative distance for every vertex",
+      "primitive": "sphere",
+      "position": [
+        1.35,
+        0.558,
+        -2.7
+      ],
+      "scale": [
+        1.24,
+        1.116,
+        1.24
+      ],
+      "color": "#e15759",
+      "page": 3,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "Keep a tentative distance for every vertex: 0 for the source, infinity elsewhere.",
+          "quote": "Keep a tentative distance for every vertex: 0 for the source, infinity elsewhere.",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "o04",
+      "label": "With a binary heap the running time is O((V +…",
+      "primitive": "sphere",
+      "position": [
+        4.05,
+        0.45,
+        -2.7
+      ],
+      "scale": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "color": "#76b7b2",
+      "page": 4,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "With a binary heap the running time is O((V + E) log V).",
+          "quote": "With a binary heap the running time is O((V + E) log V).",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "o05",
+      "label": "Dijkstra may finalise a vertex too early when a…",
+      "primitive": "sphere",
+      "position": [
+        -4.05,
+        0.504,
+        0.0
+      ],
+      "scale": [
+        1.12,
+        1.008,
+        1.12
+      ],
+      "color": "#59a14f",
+      "page": 5,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "Dijkstra may finalise a vertex too early when a negative edge exists.",
+          "quote": "Dijkstra may finalise a vertex too early when a negative edge exists.",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "o06",
+      "label": "Running Dijkstra from every source costs O(V (V…",
+      "primitive": "sphere",
+      "position": [
+        -1.35,
+        0.558,
+        0.0
+      ],
+      "scale": [
+        1.24,
+        1.116,
+        1.24
+      ],
+      "color": "#edc948",
+      "page": 6,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "Running Dijkstra from every source costs O(V (V + E) log V).",
+          "quote": "Running Dijkstra from every source costs O(V (V + E) log V).",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "o07",
+      "label": "A* orders the queue by f(v) = g(v) + h(v)",
+      "primitive": "sphere",
+      "position": [
+        1.35,
+        0.45,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "color": "#b07aa1",
+      "page": 7,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "A* orders the queue by f(v) = g(v) + h(v): cost so far plus an estimate to the goal.",
+          "quote": "A* orders the queue by f(v) = g(v) + h(v): cost so far plus an estimate to the goal.",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "o08",
+      "label": "Sparse road networks use Dijkstra with a 4-ary…",
+      "primitive": "sphere",
+      "position": [
+        4.05,
+        0.504,
+        0.0
+      ],
+      "scale": [
+        1.12,
+        1.008,
+        1.12
+      ],
+      "color": "#ff9da7",
+      "page": 8,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "Sparse road networks use Dijkstra with a 4-ary heap plus bidirectional search.",
+          "quote": "Sparse road networks use Dijkstra with a 4-ary heap plus bidirectional search.",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "id": "o09",
+      "label": "Unweighted graph",
+      "primitive": "sphere",
+      "position": [
+        -4.05,
+        0.558,
+        2.7
+      ],
+      "scale": [
+        1.24,
+        1.116,
+        1.24
+      ],
+      "color": "#4e79a7",
+      "page": 9,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "Unweighted graph: BFS.",
+          "quote": "Unweighted graph: BFS.",
+          "page": 9
+        }
+      ]
+    },
+    {
+      "id": "o10",
+      "label": "BFS for unweighted graphs",
+      "primitive": "cone",
+      "position": [
+        -1.35,
+        0.45,
+        2.7
+      ],
+      "scale": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "color": "#f28e2b",
+      "page": 10,
+      "kind": "summary",
+      "claims": [
+        {
+          "text": "BFS for unweighted graphs, Dijkstra for non-negative weights, Bellman-Ford when edges can be negative.",
+          "quote": "BFS for unweighted graphs, Dijkstra for non-negative weights, Bellman-Ford when edges can be negative.",
+          "page": 10
+        }
+      ]
+    },
+    {
+      "id": "o11",
+      "label": "The cost of a path is the sum of its edge…",
+      "primitive": "sphere",
+      "position": [
+        1.35,
+        0.504,
+        2.7
+      ],
+      "scale": [
+        1.12,
+        1.008,
+        1.12
+      ],
+      "color": "#e15759",
+      "page": 1,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "The cost of a path is the sum of its edge weights.",
+          "quote": "The cost of a path is the sum of its edge weights.",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "o12",
+      "label": "On an unweighted graph it computes shortest…",
+      "primitive": "sphere",
+      "position": [
+        4.05,
+        0.558,
+        2.7
+      ],
+      "scale": [
+        1.24,
+        1.116,
+        1.24
+      ],
+      "color": "#76b7b2",
+      "page": 2,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "On an unweighted graph it computes shortest paths in O(V + E).",
+          "quote": "On an unweighted graph it computes shortest paths in O(V + E).",
+          "page": 2
+        }
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "id": "i01",
+      "type": "click",
+      "target": "o01",
+      "reveal": {
+        "title": "Given a weighted graph",
+        "body": "Page 1 — “Given a weighted graph, find the minimum-cost path from a source s to every vertex.”"
+      }
+    },
+    {
+      "id": "i02",
+      "type": "click",
+      "target": "o02",
+      "reveal": {
+        "title": "BFS explores vertices in order of hop count.",
+        "body": "Page 2 — “BFS explores vertices in order of hop count.”"
+      }
+    },
+    {
+      "id": "i03",
+      "type": "click",
+      "target": "o03",
+      "reveal": {
+        "title": "Keep a tentative distance for every vertex",
+        "body": "Page 3 — “Keep a tentative distance for every vertex: 0 for the source, infinity elsewhere.”"
+      }
+    },
+    {
+      "id": "i04",
+      "type": "click",
+      "target": "o04",
+      "reveal": {
+        "title": "With a binary heap the running time is O((V +…",
+        "body": "Page 4 — “With a binary heap the running time is O((V + E) log V).”"
+      }
+    },
+    {
+      "id": "i05",
+      "type": "click",
+      "target": "o05",
+      "reveal": {
+        "title": "Dijkstra may finalise a vertex too early when a…",
+        "body": "Page 5 — “Dijkstra may finalise a vertex too early when a negative edge exists.”"
+      }
+    },
+    {
+      "id": "i06",
+      "type": "click",
+      "target": "o06",
+      "reveal": {
+        "title": "Running Dijkstra from every source costs O(V (V…",
+        "body": "Page 6 — “Running Dijkstra from every source costs O(V (V + E) log V).”"
+      }
+    },
+    {
+      "id": "i07",
+      "type": "click",
+      "target": "o07",
+      "reveal": {
+        "title": "A* orders the queue by f(v) = g(v) + h(v)",
+        "body": "Page 7 — “A* orders the queue by f(v) = g(v) + h(v): cost so far plus an estimate to the goal.”"
+      }
+    },
+    {
+      "id": "i08",
+      "type": "click",
+      "target": "o08",
+      "reveal": {
+        "title": "Sparse road networks use Dijkstra with a 4-ary…",
+        "body": "Page 8 — “Sparse road networks use Dijkstra with a 4-ary heap plus bidirectional search.”"
+      }
+    },
+    {
+      "id": "i09",
+      "type": "click",
+      "target": "o09",
+      "reveal": {
+        "title": "Unweighted graph",
+        "body": "Page 9 — “Unweighted graph: BFS.”"
+      }
+    },
+    {
+      "id": "i10",
+      "type": "click",
+      "target": "o10",
+      "reveal": {
+        "title": "BFS for unweighted graphs",
+        "body": "Page 10 — “BFS for unweighted graphs, Dijkstra for non-negative weights, Bellman-Ford when edges can be negative.”"
+      }
+    },
+    {
+      "id": "i11",
+      "type": "click",
+      "target": "o11",
+      "reveal": {
+        "title": "The cost of a path is the sum of its edge…",
+        "body": "Page 1 — “The cost of a path is the sum of its edge weights.”"
+      }
+    },
+    {
+      "id": "i12",
+      "type": "click",
+      "target": "o12",
+      "reveal": {
+        "title": "On an unweighted graph it computes shortest…",
+        "body": "Page 2 — “On an unweighted graph it computes shortest paths in O(V + E).”"
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t01",
+      "kind": "identify",
+      "prompt": "Which object presents the idea from page 3?",
+      "answers": [
+        "o03"
+      ],
+      "explanation": "The object was grounded on page 3 of the source deck."
+    },
+    {
+      "id": "t02",
+      "kind": "identify",
+      "prompt": "Which object summarises the deck, from page 10?",
+      "answers": [
+        "o10"
+      ],
+      "explanation": "The last slide is the summary, so its object answers the task."
+    },
+    {
+      "id": "t03",
+      "kind": "order",
+      "prompt": "Order these three objects as their pages appear in the deck.",
+      "answers": [
+        "o01",
+        "o02",
+        "o03"
+      ],
+      "explanation": "Each listed object comes from a different page, in deck order."
+    }
+  ],
+  "meta": {
+    "generator": "mock",
+    "object_count": 12,
+    "triangle_estimate": 10656,
+    "notes": "Mock planner: one object per slide plus detail objects. Claim text is a prefix of the slide quote, not a paraphrase."
+  }
+}

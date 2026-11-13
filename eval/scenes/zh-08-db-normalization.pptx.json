@@ -1,0 +1,459 @@
+{
+  "schema": "lessonlens/scene@1",
+  "deck": {
+    "id": "zh-08-db-normalization",
+    "title": "关系数据库：范式与索引",
+    "lang": "zh",
+    "pages": 10,
+    "source": "eval/slides/zh-08-db-normalization.pptx"
+  },
+  "objects": [
+    {
+      "id": "o01",
+      "label": "若 X 的取值唯一决定 Y 的取值",
+      "primitive": "box",
+      "position": [
+        -4.05,
+        0.35,
+        -2.7
+      ],
+      "scale": [
+        1.0,
+        0.7,
+        1.0
+      ],
+      "color": "#4e79a7",
+      "page": 1,
+      "kind": "definition",
+      "claims": [
+        {
+          "text": "若 X 的取值唯一决定 Y 的取值，则称 Y 函数依赖于 X，记作 X → Y。",
+          "quote": "若 X 的取值唯一决定 Y 的取值，则称 Y 函数依赖于 X，记作 X → Y。",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "o02",
+      "label": "把「地址」拆成省、市、街道",
+      "primitive": "sphere",
+      "position": [
+        -1.35,
+        0.504,
+        -2.7
+      ],
+      "scale": [
+        1.12,
+        1.008,
+        1.12
+      ],
+      "color": "#f28e2b",
+      "page": 2,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "把「地址」拆成省、市、街道，或者单独建表，都是为了满足 1NF。",
+          "quote": "把「地址」拆成省、市、街道，或者单独建表，都是为了满足 1NF。",
+          "page": 2
+        }
+      ]
+    },
+    {
+      "id": "o03",
+      "label": "在 1NF 基础上",
+      "primitive": "sphere",
+      "position": [
+        1.35,
+        0.558,
+        -2.7
+      ],
+      "scale": [
+        1.24,
+        1.116,
+        1.24
+      ],
+      "color": "#e15759",
+      "page": 3,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "在 1NF 基础上，每个非主属性都完全函数依赖于候选键。",
+          "quote": "在 1NF 基础上，每个非主属性都完全函数依赖于候选键。",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "o04",
+      "label": "在 2NF 基础上",
+      "primitive": "sphere",
+      "position": [
+        4.05,
+        0.45,
+        -2.7
+      ],
+      "scale": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "color": "#76b7b2",
+      "page": 4,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "在 2NF 基础上，非主属性不传递依赖于候选键。",
+          "quote": "在 2NF 基础上，非主属性不传递依赖于候选键。",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "o05",
+      "label": "每个非平凡函数依赖 X → Y 的左边 X 都必须包含候选键。",
+      "primitive": "sphere",
+      "position": [
+        -4.05,
+        0.504,
+        0.0
+      ],
+      "scale": [
+        1.12,
+        1.008,
+        1.12
+      ],
+      "color": "#59a14f",
+      "page": 5,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "每个非平凡函数依赖 X → Y 的左边 X 都必须包含候选键。",
+          "quote": "每个非平凡函数依赖 X → Y 的左边 X 都必须包含候选键。",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "o06",
+      "label": "B+ 树把所有键放在叶子层",
+      "primitive": "sphere",
+      "position": [
+        -1.35,
+        0.558,
+        0.0
+      ],
+      "scale": [
+        1.24,
+        1.116,
+        1.24
+      ],
+      "color": "#edc948",
+      "page": 6,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "B+ 树把所有键放在叶子层，并用链表连接叶子以便范围扫描。",
+          "quote": "B+ 树把所有键放在叶子层，并用链表连接叶子以便范围扫描。",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "o07",
+      "label": "索引加速读取",
+      "primitive": "sphere",
+      "position": [
+        1.35,
+        0.45,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "color": "#b07aa1",
+      "page": 7,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "索引加速读取，但每次写入都要维护索引，写多读少的表要慎重。",
+          "quote": "索引加速读取，但每次写入都要维护索引，写多读少的表要慎重。",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "o08",
+      "label": "范式 | 消除的问题 | 要求",
+      "primitive": "sphere",
+      "position": [
+        4.05,
+        0.504,
+        0.0
+      ],
+      "scale": [
+        1.12,
+        1.008,
+        1.12
+      ],
+      "color": "#ff9da7",
+      "page": 8,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "范式 | 消除的问题 | 要求 1NF | 重复组 | 属性原子化 2NF | 部分依赖 | 非主属性完全依赖候选键 3NF | 传递依赖 | 非主属性不传递依赖候选键 BCNF | 主属性的部分与传递依赖 | 每个决定因素都含候选键",
+          "quote": "范式 | 消除的问题 | 要求 1NF | 重复组 | 属性原子化 2NF | 部分依赖 | 非主属性完全依赖候选键 3NF | 传递依赖 | 非主属性不传递依赖候选键 BCNF | 主属性的部分与传递依赖 | 每个决定因素都含候选键",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "id": "o09",
+      "label": "EXPLAIN 输出的 type 从 ALL 到 const 依次变好。",
+      "primitive": "sphere",
+      "position": [
+        -4.05,
+        0.558,
+        2.7
+      ],
+      "scale": [
+        1.24,
+        1.116,
+        1.24
+      ],
+      "color": "#4e79a7",
+      "page": 9,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "EXPLAIN 输出的 type 从 ALL 到 const 依次变好。",
+          "quote": "EXPLAIN 输出的 type 从 ALL 到 const 依次变好。",
+          "page": 9
+        }
+      ]
+    },
+    {
+      "id": "o10",
+      "label": "范式解决冗余与更新异常",
+      "primitive": "cone",
+      "position": [
+        -1.35,
+        0.45,
+        2.7
+      ],
+      "scale": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "color": "#f28e2b",
+      "page": 10,
+      "kind": "summary",
+      "claims": [
+        {
+          "text": "范式解决冗余与更新异常，反范式解决查询性能。",
+          "quote": "范式解决冗余与更新异常，反范式解决查询性能。",
+          "page": 10
+        }
+      ]
+    },
+    {
+      "id": "o11",
+      "label": "完全函数依赖是指 X 的任何真子集都不能决定 Y。",
+      "primitive": "box",
+      "position": [
+        1.35,
+        0.392,
+        2.7
+      ],
+      "scale": [
+        1.12,
+        0.784,
+        1.12
+      ],
+      "color": "#e15759",
+      "page": 1,
+      "kind": "definition",
+      "claims": [
+        {
+          "text": "完全函数依赖是指 X 的任何真子集都不能决定 Y。",
+          "quote": "完全函数依赖是指 X 的任何真子集都不能决定 Y。",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "o12",
+      "label": "数组、集合这类重复组必须拆成独立的关系。",
+      "primitive": "sphere",
+      "position": [
+        4.05,
+        0.558,
+        2.7
+      ],
+      "scale": [
+        1.24,
+        1.116,
+        1.24
+      ],
+      "color": "#76b7b2",
+      "page": 2,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "数组、集合这类重复组必须拆成独立的关系。",
+          "quote": "数组、集合这类重复组必须拆成独立的关系。",
+          "page": 2
+        }
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "id": "i01",
+      "type": "click",
+      "target": "o01",
+      "reveal": {
+        "title": "若 X 的取值唯一决定 Y 的取值",
+        "body": "Page 1 — “若 X 的取值唯一决定 Y 的取值，则称 Y 函数依赖于 X，记作 X → Y。”"
+      }
+    },
+    {
+      "id": "i02",
+      "type": "click",
+      "target": "o02",
+      "reveal": {
+        "title": "把「地址」拆成省、市、街道",
+        "body": "Page 2 — “把「地址」拆成省、市、街道，或者单独建表，都是为了满足 1NF。”"
+      }
+    },
+    {
+      "id": "i03",
+      "type": "click",
+      "target": "o03",
+      "reveal": {
+        "title": "在 1NF 基础上",
+        "body": "Page 3 — “在 1NF 基础上，每个非主属性都完全函数依赖于候选键。”"
+      }
+    },
+    {
+      "id": "i04",
+      "type": "click",
+      "target": "o04",
+      "reveal": {
+        "title": "在 2NF 基础上",
+        "body": "Page 4 — “在 2NF 基础上，非主属性不传递依赖于候选键。”"
+      }
+    },
+    {
+      "id": "i05",
+      "type": "click",
+      "target": "o05",
+      "reveal": {
+        "title": "每个非平凡函数依赖 X → Y 的左边 X 都必须包含候选键。",
+        "body": "Page 5 — “每个非平凡函数依赖 X → Y 的左边 X 都必须包含候选键。”"
+      }
+    },
+    {
+      "id": "i06",
+      "type": "click",
+      "target": "o06",
+      "reveal": {
+        "title": "B+ 树把所有键放在叶子层",
+        "body": "Page 6 — “B+ 树把所有键放在叶子层，并用链表连接叶子以便范围扫描。”"
+      }
+    },
+    {
+      "id": "i07",
+      "type": "click",
+      "target": "o07",
+      "reveal": {
+        "title": "索引加速读取",
+        "body": "Page 7 — “索引加速读取，但每次写入都要维护索引，写多读少的表要慎重。”"
+      }
+    },
+    {
+      "id": "i08",
+      "type": "click",
+      "target": "o08",
+      "reveal": {
+        "title": "范式 | 消除的问题 | 要求",
+        "body": "Page 8 — “范式 | 消除的问题 | 要求 1NF | 重复组 | 属性原子化 2NF | 部分依赖 | 非主属性完全依赖候选键 3NF | 传递依赖 | 非主属性不传递依赖候选键 BCNF | 主属性的部分与传递依赖 | 每个决定因素都含候选键”"
+      }
+    },
+    {
+      "id": "i09",
+      "type": "click",
+      "target": "o09",
+      "reveal": {
+        "title": "EXPLAIN 输出的 type 从 ALL 到 const 依次变好。",
+        "body": "Page 9 — “EXPLAIN 输出的 type 从 ALL 到 const 依次变好。”"
+      }
+    },
+    {
+      "id": "i10",
+      "type": "click",
+      "target": "o10",
+      "reveal": {
+        "title": "范式解决冗余与更新异常",
+        "body": "Page 10 — “范式解决冗余与更新异常，反范式解决查询性能。”"
+      }
+    },
+    {
+      "id": "i11",
+      "type": "click",
+      "target": "o11",
+      "reveal": {
+        "title": "完全函数依赖是指 X 的任何真子集都不能决定 Y。",
+        "body": "Page 1 — “完全函数依赖是指 X 的任何真子集都不能决定 Y。”"
+      }
+    },
+    {
+      "id": "i12",
+      "type": "click",
+      "target": "o12",
+      "reveal": {
+        "title": "数组、集合这类重复组必须拆成独立的关系。",
+        "body": "Page 2 — “数组、集合这类重复组必须拆成独立的关系。”"
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t01",
+      "kind": "identify",
+      "prompt": "Which object presents the idea from page 3?",
+      "answers": [
+        "o03"
+      ],
+      "explanation": "The object was grounded on page 3 of the source deck."
+    },
+    {
+      "id": "t02",
+      "kind": "identify",
+      "prompt": "Which object summarises the deck, from page 10?",
+      "answers": [
+        "o10"
+      ],
+      "explanation": "The last slide is the summary, so its object answers the task."
+    },
+    {
+      "id": "t03",
+      "kind": "order",
+      "prompt": "Order these three objects as their pages appear in the deck.",
+      "answers": [
+        "o01",
+        "o02",
+        "o03"
+      ],
+      "explanation": "Each listed object comes from a different page, in deck order."
+    }
+  ],
+  "meta": {
+    "generator": "mock",
+    "object_count": 12,
+    "triangle_estimate": 8760,
+    "notes": "Mock planner: one object per slide plus detail objects. Claim text is a prefix of the slide quote, not a paraphrase."
+  }
+}

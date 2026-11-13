@@ -1,0 +1,459 @@
+{
+  "schema": "lessonlens/scene@1",
+  "deck": {
+    "id": "en-02-bst",
+    "title": "Binary Search Trees",
+    "lang": "en",
+    "pages": 10,
+    "source": "eval/slides/en-02-bst.pptx"
+  },
+  "objects": [
+    {
+      "id": "o01",
+      "label": "A BST is a binary tree where every node's left…",
+      "primitive": "sphere",
+      "position": [
+        -4.05,
+        0.45,
+        -2.7
+      ],
+      "scale": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "color": "#4e79a7",
+      "page": 1,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "A BST is a binary tree where every node's left subtree holds smaller keys and its right subtree holds larger keys.",
+          "quote": "A BST is a binary tree where every node's left subtree holds smaller keys and its right subtree holds larger keys.",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "o02",
+      "label": "Compare the target with the root",
+      "primitive": "sphere",
+      "position": [
+        -1.35,
+        0.504,
+        -2.7
+      ],
+      "scale": [
+        1.12,
+        1.008,
+        1.12
+      ],
+      "color": "#f28e2b",
+      "page": 2,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "Compare the target with the root: go left if smaller, right if larger.",
+          "quote": "Compare the target with the root: go left if smaller, right if larger.",
+          "page": 2
+        }
+      ]
+    },
+    {
+      "id": "o03",
+      "label": "Search for the key until a null child is reached",
+      "primitive": "sphere",
+      "position": [
+        1.35,
+        0.558,
+        -2.7
+      ],
+      "scale": [
+        1.24,
+        1.116,
+        1.24
+      ],
+      "color": "#e15759",
+      "page": 3,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "Search for the key until a null child is reached, then attach a new leaf.",
+          "quote": "Search for the key until a null child is reached, then attach a new leaf.",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "o04",
+      "label": "A leaf is removed directly.",
+      "primitive": "sphere",
+      "position": [
+        4.05,
+        0.45,
+        -2.7
+      ],
+      "scale": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "color": "#76b7b2",
+      "page": 4,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "A leaf is removed directly.",
+          "quote": "A leaf is removed directly.",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "o05",
+      "label": "Pre-order visits node, left, right",
+      "primitive": "sphere",
+      "position": [
+        -4.05,
+        0.504,
+        0.0
+      ],
+      "scale": [
+        1.12,
+        1.008,
+        1.12
+      ],
+      "color": "#59a14f",
+      "page": 5,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "Pre-order visits node, left, right; in-order visits left, node, right; post-order visits left, right, node.",
+          "quote": "Pre-order visits node, left, right; in-order visits left, node, right; post-order visits left, right, node.",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "o06",
+      "label": "AVL trees keep the height difference between…",
+      "primitive": "sphere",
+      "position": [
+        -1.35,
+        0.558,
+        0.0
+      ],
+      "scale": [
+        1.24,
+        1.116,
+        1.24
+      ],
+      "color": "#edc948",
+      "page": 6,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "AVL trees keep the height difference between siblings at most 1 using rotations.",
+          "quote": "AVL trees keep the height difference between siblings at most 1 using rotations.",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "o07",
+      "label": "Sort the keys",
+      "primitive": "sphere",
+      "position": [
+        1.35,
+        0.45,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "color": "#b07aa1",
+      "page": 7,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "Sort the keys, then take the middle element as the root of each subtree.",
+          "quote": "Sort the keys, then take the middle element as the root of each subtree.",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "o08",
+      "label": "Operation | Unbalanced | Balanced | Note",
+      "primitive": "sphere",
+      "position": [
+        4.05,
+        0.504,
+        0.0
+      ],
+      "scale": [
+        1.12,
+        1.008,
+        1.12
+      ],
+      "color": "#ff9da7",
+      "page": 8,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "Operation | Unbalanced | Balanced | Note Search | O(n) | O(log n) | h is the only variable Insert | O(n) | O(log n) | plus rotations Delete…",
+          "quote": "Operation | Unbalanced | Balanced | Note Search | O(n) | O(log n) | h is the only variable Insert | O(n) | O(log n) | plus rotations Delete | O(n) | O(log n) | successor swap In-order walk | O(n) | O(n) | sorted output",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "id": "o09",
+      "label": "A sorted array searches in O(log n) but inserts…",
+      "primitive": "sphere",
+      "position": [
+        -4.05,
+        0.558,
+        2.7
+      ],
+      "scale": [
+        1.24,
+        1.116,
+        1.24
+      ],
+      "color": "#4e79a7",
+      "page": 9,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "A sorted array searches in O(log n) but inserts in O(n) because of shifting.",
+          "quote": "A sorted array searches in O(log n) but inserts in O(n) because of shifting.",
+          "page": 9
+        }
+      ]
+    },
+    {
+      "id": "o10",
+      "label": "The BST invariant turns search into a guided…",
+      "primitive": "cone",
+      "position": [
+        -1.35,
+        0.45,
+        2.7
+      ],
+      "scale": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "color": "#f28e2b",
+      "page": 10,
+      "kind": "summary",
+      "claims": [
+        {
+          "text": "The BST invariant turns search into a guided path.",
+          "quote": "The BST invariant turns search into a guided path.",
+          "page": 10
+        }
+      ]
+    },
+    {
+      "id": "o11",
+      "label": "Duplicates are excluded",
+      "primitive": "sphere",
+      "position": [
+        1.35,
+        0.504,
+        2.7
+      ],
+      "scale": [
+        1.12,
+        1.008,
+        1.12
+      ],
+      "color": "#e15759",
+      "page": 1,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "Duplicates are excluded, or handled by one documented rule.",
+          "quote": "Duplicates are excluded, or handled by one documented rule.",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "id": "o12",
+      "label": "The cost is Θ(h)",
+      "primitive": "sphere",
+      "position": [
+        4.05,
+        0.558,
+        2.7
+      ],
+      "scale": [
+        1.24,
+        1.116,
+        1.24
+      ],
+      "color": "#76b7b2",
+      "page": 2,
+      "kind": "concept",
+      "claims": [
+        {
+          "text": "The cost is Θ(h), where h is the height of the tree.",
+          "quote": "The cost is Θ(h), where h is the height of the tree.",
+          "page": 2
+        }
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "id": "i01",
+      "type": "click",
+      "target": "o01",
+      "reveal": {
+        "title": "A BST is a binary tree where every node's left…",
+        "body": "Page 1 — “A BST is a binary tree where every node's left subtree holds smaller keys and its right subtree holds larger keys.”"
+      }
+    },
+    {
+      "id": "i02",
+      "type": "click",
+      "target": "o02",
+      "reveal": {
+        "title": "Compare the target with the root",
+        "body": "Page 2 — “Compare the target with the root: go left if smaller, right if larger.”"
+      }
+    },
+    {
+      "id": "i03",
+      "type": "click",
+      "target": "o03",
+      "reveal": {
+        "title": "Search for the key until a null child is reached",
+        "body": "Page 3 — “Search for the key until a null child is reached, then attach a new leaf.”"
+      }
+    },
+    {
+      "id": "i04",
+      "type": "click",
+      "target": "o04",
+      "reveal": {
+        "title": "A leaf is removed directly.",
+        "body": "Page 4 — “A leaf is removed directly.”"
+      }
+    },
+    {
+      "id": "i05",
+      "type": "click",
+      "target": "o05",
+      "reveal": {
+        "title": "Pre-order visits node, left, right",
+        "body": "Page 5 — “Pre-order visits node, left, right; in-order visits left, node, right; post-order visits left, right, node.”"
+      }
+    },
+    {
+      "id": "i06",
+      "type": "click",
+      "target": "o06",
+      "reveal": {
+        "title": "AVL trees keep the height difference between…",
+        "body": "Page 6 — “AVL trees keep the height difference between siblings at most 1 using rotations.”"
+      }
+    },
+    {
+      "id": "i07",
+      "type": "click",
+      "target": "o07",
+      "reveal": {
+        "title": "Sort the keys",
+        "body": "Page 7 — “Sort the keys, then take the middle element as the root of each subtree.”"
+      }
+    },
+    {
+      "id": "i08",
+      "type": "click",
+      "target": "o08",
+      "reveal": {
+        "title": "Operation | Unbalanced | Balanced | Note",
+        "body": "Page 8 — “Operation | Unbalanced | Balanced | Note Search | O(n) | O(log n) | h is the only variable Insert | O(n) | O(log n) | plus rotations Delete | O(n) | O(log n) | successor swap In-order walk | O(n) | O(n) | sorted output”"
+      }
+    },
+    {
+      "id": "i09",
+      "type": "click",
+      "target": "o09",
+      "reveal": {
+        "title": "A sorted array searches in O(log n) but inserts…",
+        "body": "Page 9 — “A sorted array searches in O(log n) but inserts in O(n) because of shifting.”"
+      }
+    },
+    {
+      "id": "i10",
+      "type": "click",
+      "target": "o10",
+      "reveal": {
+        "title": "The BST invariant turns search into a guided…",
+        "body": "Page 10 — “The BST invariant turns search into a guided path.”"
+      }
+    },
+    {
+      "id": "i11",
+      "type": "click",
+      "target": "o11",
+      "reveal": {
+        "title": "Duplicates are excluded",
+        "body": "Page 1 — “Duplicates are excluded, or handled by one documented rule.”"
+      }
+    },
+    {
+      "id": "i12",
+      "type": "click",
+      "target": "o12",
+      "reveal": {
+        "title": "The cost is Θ(h)",
+        "body": "Page 2 — “The cost is Θ(h), where h is the height of the tree.”"
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t01",
+      "kind": "identify",
+      "prompt": "Which object presents the idea from page 3?",
+      "answers": [
+        "o03"
+      ],
+      "explanation": "The object was grounded on page 3 of the source deck."
+    },
+    {
+      "id": "t02",
+      "kind": "identify",
+      "prompt": "Which object summarises the deck, from page 10?",
+      "answers": [
+        "o10"
+      ],
+      "explanation": "The last slide is the summary, so its object answers the task."
+    },
+    {
+      "id": "t03",
+      "kind": "order",
+      "prompt": "Order these three objects as their pages appear in the deck.",
+      "answers": [
+        "o01",
+        "o02",
+        "o03"
+      ],
+      "explanation": "Each listed object comes from a different page, in deck order."
+    }
+  ],
+  "meta": {
+    "generator": "mock",
+    "object_count": 12,
+    "triangle_estimate": 10656,
+    "notes": "Mock planner: one object per slide plus detail objects. Claim text is a prefix of the slide quote, not a paraphrase."
+  }
+}

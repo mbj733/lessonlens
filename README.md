@@ -4,8 +4,8 @@
 checked back against the source slide text, and the pass/fail table is produced by a script — not
 typed by hand.
 
-> Status: **B0 (environment) and B1 (ingest) done.** Planner, web runtime, evaluation and USDZ
-> export land in batches B2–B6.
+> Status: **B0 (environment), B1 (ingest) and B2 (planner) done.** Web runtime, evaluation and USDZ
+> export land in batches B3–B6.
 
 ## Pipeline
 
@@ -13,7 +13,7 @@ typed by hand.
 slide.pptx / .pdf
    │  ingest  (python-pptx / pdfplumber)          ← implemented
    ▼  extract.json   pages[] → blocks{type,text,bbox,rows}
-   │  planner (schema-constrained; mock | cache | deepseek)
+   │  planner (schema-constrained; mock | cache | deepseek)   ← implemented (mock default)
    ▼  scene.json     objects[] / interactions[] / tasks[]  each object has claims{text,quote,page}
    ├─► web/        (Three.js, GitHub Pages demo)
    ├─► export_usdz (usd-core)  ─► out/scene.usdz ─► usdchecker
@@ -34,6 +34,9 @@ python -m venv .venv
 
 # deck -> extract JSON
 .venv\Scripts\python.exe -m lessonlens ingest eval/slides --out eval/extract --root .
+
+# extract -> scene JSON (mock planner: deterministic, no API key)
+.venv\Scripts\python.exe -m lessonlens build eval/slides --out eval/scenes --root . --llm mock
 
 # gates
 .venv\Scripts\python.exe -m ruff check .
@@ -66,6 +69,19 @@ of the PPTX.
 types are `title`, `bullet`, `body`, `table` (with structured `rows`) and `image`. Every block keeps
 its geometry: exact shape boxes for PPTX, line boxes for PDF.
 
+## Scene contract
+
+`schema/scene.schema.json` (JSON Schema 2020-12) fixes the shape: 8–24 objects, each with a
+`primitive` (`box|sphere|cylinder|cone|plane`), a position, a colour and at least one claim carrying
+a **verbatim** `quote` and its `page`; one click interaction per object; 1–8 tasks whose answers point
+at object ids. `validate_scene()` adds the rules JSON Schema cannot express — cross references, page
+range, and a 60k triangle budget.
+
+The default planner is a deterministic rule engine (`--llm mock`) that maps one object per slide,
+so every number in this repository can be reproduced without a key. `--llm cache` replays committed
+JSON; `--llm deepseek` calls the API (adapter implemented, **not exercised against the live service**
+in this environment — no key available).
+
 ## Limitations
 
 - No macOS / Xcode / Vision Pro here: spatial output is proven with **USDZ + `usdchecker`**, not a
@@ -79,3 +95,4 @@ its geometry: exact shape boxes for PPTX, line boxes for PDF.
 
 - `docs/b0-evidence.md` — environment, dependency versions, USDZ validator probe
 - `docs/b1-evidence.md` — corpus hashes, ingest statistics, test results, design notes
+- `docs/b2-evidence.md` — scene validation, planner determinism, the four defects fixed
