@@ -12,6 +12,7 @@ import sys
 from pathlib import Path
 
 from . import __version__
+from .eval import evaluate, load_scenes, load_usdz_report, load_web_metrics, write_report
 from .ingest import extract_paths, write_extract
 from .planner import PlannerError, build_provider
 
@@ -110,6 +111,40 @@ def _cmd_build(args: argparse.Namespace) -> int:
     return 1 if failures else 0
 
 
+def _cmd_eval(args: argparse.Namespace) -> int:
+    scenes = load_scenes(args.scenes)
+    if not scenes:
+        print(f"no scenes found in {args.scenes}; run `lessonlens build` first", file=sys.stderr)
+        return 1
+
+    metrics, checks = evaluate(scenes, root=args.root or Path.cwd())
+    metrics.web = load_web_metrics(args.web_metrics)
+    metrics.usdz = load_usdz_report(args.usdz)
+    target = write_report(metrics, args.out)
+
+    st_rate = metrics.self_test.get("total", {}).get("rate", 0.0)
+    rows = [
+        ("schema_pass_rate", metrics.schema_pass_rate, "100%"),
+        ("grounding_coverage", metrics.grounding_coverage, ">=80%"),
+        ("quote_hit_rate", metrics.quote_hit_rate, ">=85%"),
+        ("unsupported_rate", metrics.unsupported_rate, "<=10%"),
+        ("task_solvable_rate", metrics.task_solvable_rate, "100%"),
+        ("verifier_self_test", st_rate, "100%"),
+    ]
+    print(f"{'metric':<22} {'value':>8}   target")
+    for name, value, target_text in rows:
+        print(f"{name:<22} {value:>7.1%}   {target_text}")
+    print(f"\n{metrics.decks} scenes, {metrics.objects} objects, {metrics.claims} claims")
+    failed = sum(1 for check in checks if check.schema_errors) + sum(
+        1 for claim in (c for check in checks for c in check.claims) if not claim.ok
+    )
+    print(f"report -> {target}  (metrics -> {target.parent / 'metrics.json'})")
+    if failed:
+        print(f"FAIL: {failed} unsupported claim(s) or schema error(s); see report", file=sys.stderr)
+        return 1
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="lessonlens", description="Slide deck -> grounded 3D scene.")
     parser.add_argument("--version", action="version", version=f"lessonlens {__version__}")
@@ -130,6 +165,23 @@ def build_parser() -> argparse.ArgumentParser:
     )
     build.add_argument("--cache", default="cache", help="directory for cached LLM responses")
     build.set_defaults(func=_cmd_build)
+
+    evaluate_cmd = sub.add_parser("eval", help="verify scenes and write eval/report.md")
+    evaluate_cmd.add_argument("--scenes", default="eval/scenes", help="directory of scene JSON")
+    evaluate_cmd.add_argument("--out", default="eval/report.md", help="report path")
+    evaluate_cmd.add_argument("--root", default=None, help="repository root used to resolve decks")
+    evaluate_cmd.add_argument(
+        "--web-metrics", default="eval/web-metrics.json", help="browser gate output (optional)"
+    )
+    evaluate_cmd.add_argument(
+        "--usdz", default="out/usdz-report.json", help="USDZ check output (optional)"
+    )
+    evaluate_cmd.add_argument(
+        "--cache-only",
+        action="store_true",
+        help="use the committed scenes as-is (the only supported mode; kept for CI parity)",
+    )
+    evaluate_cmd.set_defaults(func=_cmd_eval)
     return parser
 
 

@@ -145,6 +145,20 @@ def main() -> int:
             page.screenshot(path=str(shot))
             results.check("screenshot written", shot.exists(), str(shot.relative_to(ROOT)))
 
+            # Hand the numbers to `lessonlens eval` so the report quotes the browser gate.
+            web_metrics = {
+                "checks_passed": len(results.rows) - results.failed,
+                "checks_total": len(results.rows),
+                "first_frame_ms": round(first_frame or 0),
+                "lcp_ms": lcp,
+                "lcp_entries": 1 if lcp is not None else 0,
+                "scene": args.scene,
+                "source": "tools/web_check.py",
+            }
+            (ROOT / "eval" / "web-metrics.json").write_text(
+                json.dumps(web_metrics, indent=2) + "\n", "utf-8"
+            )
+
             browser.close()
     finally:
         httpd.shutdown()

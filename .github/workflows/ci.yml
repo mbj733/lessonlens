@@ -36,14 +36,20 @@ jobs:
       - name: pytest
         run: pytest -q
 
-      # Enabled automatically once B2/B4 land the eval module.
+      # Recomputes every metric from the committed artifacts and rewrites eval/report.md.
       - name: eval (cache-only)
-        if: ${{ hashFiles('src/lessonlens/eval.py') != '' }}
         run: python -m lessonlens eval --cache-only
 
+      # The report must be reproducible: a stale committed report fails the build.
+      - name: report is reproducible
+        run: |
+          git diff --stat
+          git diff --exit-code -- eval/report.md eval/metrics.json
+
       - name: upload report
-        if: ${{ hashFiles('eval/report.md') != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: report
-          path: eval/report.md
+          path: |
+            eval/report.md
+            eval/metrics.json

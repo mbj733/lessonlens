@@ -1,0 +1,9 @@
+{
+  "checks_passed": 13,
+  "checks_total": 13,
+  "first_frame_ms": 320,
+  "lcp_ms": null,
+  "lcp_entries": 0,
+  "scene": "zh-09-tcp.pptx.json",
+  "source": "tools/web_check.py"
+}
