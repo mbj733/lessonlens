@@ -1,0 +1,102 @@
+{
+  "scenes": [
+    {
+      "file": "en-01-sorting.pdf.json",
+      "id": "en-01-sorting",
+      "title": "Sorting Algorithms",
+      "lang": "en",
+      "objects": 12
+    },
+    {
+      "file": "en-01-sorting.pptx.json",
+      "id": "en-01-sorting",
+      "title": "Sorting Algorithms",
+      "lang": "en",
+      "objects": 12
+    },
+    {
+      "file": "en-02-bst.pptx.json",
+      "id": "en-02-bst",
+      "title": "Binary Search Trees",
+      "lang": "en",
+      "objects": 12
+    },
+    {
+      "file": "en-03-hashing.pptx.json",
+      "id": "en-03-hashing",
+      "title": "Hash Tables",
+      "lang": "en",
+      "objects": 12
+    },
+    {
+      "file": "en-04-shortest-paths.pdf.json",
+      "id": "en-04-shortest-paths",
+      "title": "Shortest Paths in Graphs",
+      "lang": "en",
+      "objects": 12
+    },
+    {
+      "file": "en-04-shortest-paths.pptx.json",
+      "id": "en-04-shortest-paths",
+      "title": "Shortest Paths in Graphs",
+      "lang": "en",
+      "objects": 12
+    },
+    {
+      "file": "en-05-processes-threads.pptx.json",
+      "id": "en-05-processes-threads",
+      "title": "Processes and Threads",
+      "lang": "en",
+      "objects": 12
+    },
+    {
+      "file": "zh-06-binary-tree.pdf.json",
+      "id": "zh-06-binary-tree",
+      "title": "二叉树与遍历",
+      "lang": "zh",
+      "objects": 12
+    },
+    {
+      "file": "zh-06-binary-tree.pptx.json",
+      "id": "zh-06-binary-tree",
+      "title": "二叉树与遍历",
+      "lang": "zh",
+      "objects": 12
+    },
+    {
+      "file": "zh-07-dp.pptx.json",
+      "id": "zh-07-dp",
+      "title": "动态规划入门",
+      "lang": "zh",
+      "objects": 12
+    },
+    {
+      "file": "zh-08-db-normalization.pptx.json",
+      "id": "zh-08-db-normalization",
+      "title": "关系数据库：范式与索引",
+      "lang": "zh",
+      "objects": 12
+    },
+    {
+      "file": "zh-09-tcp.pdf.json",
+      "id": "zh-09-tcp",
+      "title": "TCP 连接管理与拥塞控制",
+      "lang": "zh",
+      "objects": 12
+    },
+    {
+      "file": "zh-09-tcp.pptx.json",
+      "id": "zh-09-tcp",
+      "title": "TCP 连接管理与拥塞控制",
+      "lang": "zh",
+      "objects": 12
+    },
+    {
+      "file": "zh-10-backprop.pptx.json",
+      "id": "zh-10-backprop",
+      "title": "神经网络与反向传播",
+      "lang": "zh",
+      "objects": 12
+    }
+  ]
+}

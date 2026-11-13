@@ -52,7 +52,7 @@
           },
           "color": { "type": "string", "pattern": "^#[0-9a-f]{6}$" },
           "page": { "type": "integer", "minimum": 1 },
-          "kind": { "enum": ["concept", "definition", "example", "summary"] },
+          "kind": { "enum": ["concept", "definition", "example", "table", "summary"] },
           "claims": {
             "type": "array",
             "minItems": 1,

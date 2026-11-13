@@ -11,20 +11,20 @@
     {
       "id": "o01",
       "label": "第 l 层的输出为 a^l = f(W^l a^(l−1) + b^l)。",
-      "primitive": "sphere",
+      "primitive": "box",
       "position": [
         -4.05,
-        0.45,
+        0.35,
         -2.7
       ],
       "scale": [
         1.0,
-        0.9,
+        0.7,
         1.0
       ],
       "color": "#4e79a7",
       "page": 1,
-      "kind": "concept",
+      "kind": "definition",
       "claims": [
         {
           "text": "第 l 层的输出为 a^l = f(W^l a^(l−1) + b^l)。",
@@ -453,7 +453,7 @@
   "meta": {
     "generator": "mock",
     "object_count": 12,
-    "triangle_estimate": 10656,
+    "triangle_estimate": 9708,
     "notes": "Mock planner: one object per slide plus detail objects. Claim text is a prefix of the slide quote, not a paraphrase."
   }
 }

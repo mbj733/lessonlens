@@ -11,20 +11,20 @@
     {
       "id": "o01",
       "label": "A hash function maps a key to an index in an…",
-      "primitive": "sphere",
+      "primitive": "box",
       "position": [
         -4.05,
-        0.45,
+        0.35,
         -2.7
       ],
       "scale": [
         1.0,
-        0.9,
+        0.7,
         1.0
       ],
       "color": "#4e79a7",
       "page": 1,
-      "kind": "concept",
+      "kind": "definition",
       "claims": [
         {
           "text": "A hash function maps a key to an index in an array of m buckets.",
@@ -136,20 +136,20 @@
     {
       "id": "o06",
       "label": "Operation | Average | Worst | Note",
-      "primitive": "sphere",
+      "primitive": "cylinder",
       "position": [
         -1.35,
-        0.558,
+        0.434,
         0.0
       ],
       "scale": [
         1.24,
-        1.116,
+        0.868,
         1.24
       ],
       "color": "#edc948",
       "page": 6,
-      "kind": "concept",
+      "kind": "table",
       "claims": [
         {
           "text": "Operation | Average | Worst | Note Search | Θ(1) | Θ(n) | all keys collide Insert | Θ(1) | Θ(n) | may trigger a rehash Delete | Θ(1) | Θ(n)…",
@@ -453,7 +453,7 @@
   "meta": {
     "generator": "mock",
     "object_count": 12,
-    "triangle_estimate": 10656,
+    "triangle_estimate": 8844,
     "notes": "Mock planner: one object per slide plus detail objects. Claim text is a prefix of the slide quote, not a paraphrase."
   }
 }

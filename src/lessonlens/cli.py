@@ -85,6 +85,28 @@ def _cmd_build(args: argparse.Namespace) -> int:
     for source, objects, interactions, tasks, triangles, size in rows:
         print(f"{source:<{width}}  {objects:>7}  {interactions:>6}  {tasks:>5}  {triangles:>5}  {size:>7}")
     print(f"\n{len(rows)} scenes -> {out}  (provider: {args.llm})")
+
+    # Gallery index for the web viewer (deterministic order by file name).
+    scenes = []
+    for source, objects, _i, _t, _tris, _size in rows:
+        scene_path = out / f"{Path(source).name}.json"
+        if not scene_path.exists():
+            continue
+        payload = json.loads(scene_path.read_text("utf-8"))
+        scenes.append(
+            {
+                "file": scene_path.name,
+                "id": payload["deck"]["id"],
+                "title": payload["deck"]["title"],
+                "lang": payload["deck"]["lang"],
+                "objects": objects,
+            }
+        )
+    if scenes:
+        (out / "index.json").write_text(
+            json.dumps({"scenes": scenes}, ensure_ascii=False, indent=2) + "\n", "utf-8"
+        )
+        print(f"index -> {out / 'index.json'}")
     return 1 if failures else 0
 
 

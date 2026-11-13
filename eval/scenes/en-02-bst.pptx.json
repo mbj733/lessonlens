@@ -11,20 +11,20 @@
     {
       "id": "o01",
       "label": "A BST is a binary tree where every node's left…",
-      "primitive": "sphere",
+      "primitive": "box",
       "position": [
         -4.05,
-        0.45,
+        0.35,
         -2.7
       ],
       "scale": [
         1.0,
-        0.9,
+        0.7,
         1.0
       ],
       "color": "#4e79a7",
       "page": 1,
-      "kind": "concept",
+      "kind": "definition",
       "claims": [
         {
           "text": "A BST is a binary tree where every node's left subtree holds smaller keys and its right subtree holds larger keys.",
@@ -186,20 +186,20 @@
     {
       "id": "o08",
       "label": "Operation | Unbalanced | Balanced | Note",
-      "primitive": "sphere",
+      "primitive": "cylinder",
       "position": [
         4.05,
-        0.504,
+        0.392,
         0.0
       ],
       "scale": [
         1.12,
-        1.008,
+        0.784,
         1.12
       ],
       "color": "#ff9da7",
       "page": 8,
-      "kind": "concept",
+      "kind": "table",
       "claims": [
         {
           "text": "Operation | Unbalanced | Balanced | Note Search | O(n) | O(log n) | h is the only variable Insert | O(n) | O(log n) | plus rotations Delete…",
@@ -453,7 +453,7 @@
   "meta": {
     "generator": "mock",
     "object_count": 12,
-    "triangle_estimate": 10656,
+    "triangle_estimate": 8844,
     "notes": "Mock planner: one object per slide plus detail objects. Claim text is a prefix of the slide quote, not a paraphrase."
   }
 }

@@ -211,20 +211,20 @@
     {
       "id": "o09",
       "label": "遍历方式 | 辅助结构 | 时间 | 额外空间",
-      "primitive": "sphere",
+      "primitive": "cylinder",
       "position": [
         -4.05,
-        0.558,
+        0.434,
         2.7
       ],
       "scale": [
         1.24,
-        1.116,
+        0.868,
         1.24
       ],
       "color": "#4e79a7",
       "page": 9,
-      "kind": "concept",
+      "kind": "table",
       "claims": [
         {
           "text": "遍历方式 | 辅助结构 | 时间 | 额外空间 先序 | 栈或递归 | O(n) | O(h) 中序 | 栈或递归 | O(n) | O(h) 后序 | 栈或递归 | O(n) | O(h) 层序 | 队列 | O(n) | O(w)",
@@ -453,7 +453,7 @@
   "meta": {
     "generator": "mock",
     "object_count": 12,
-    "triangle_estimate": 9708,
+    "triangle_estimate": 8844,
     "notes": "Mock planner: one object per slide plus detail objects. Claim text is a prefix of the slide quote, not a paraphrase."
   }
 }

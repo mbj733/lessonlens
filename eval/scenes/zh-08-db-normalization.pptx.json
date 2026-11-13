@@ -186,20 +186,20 @@
     {
       "id": "o08",
       "label": "范式 | 消除的问题 | 要求",
-      "primitive": "sphere",
+      "primitive": "cylinder",
       "position": [
         4.05,
-        0.504,
+        0.392,
         0.0
       ],
       "scale": [
         1.12,
-        1.008,
+        0.784,
         1.12
       ],
       "color": "#ff9da7",
       "page": 8,
-      "kind": "concept",
+      "kind": "table",
       "claims": [
         {
           "text": "范式 | 消除的问题 | 要求 1NF | 重复组 | 属性原子化 2NF | 部分依赖 | 非主属性完全依赖候选键 3NF | 传递依赖 | 非主属性不传递依赖候选键 BCNF | 主属性的部分与传递依赖 | 每个决定因素都含候选键",
@@ -453,7 +453,7 @@
   "meta": {
     "generator": "mock",
     "object_count": 12,
-    "triangle_estimate": 8760,
+    "triangle_estimate": 7896,
     "notes": "Mock planner: one object per slide plus detail objects. Claim text is a prefix of the slide quote, not a paraphrase."
   }
 }

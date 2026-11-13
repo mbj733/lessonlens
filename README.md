@@ -4,8 +4,13 @@
 checked back against the source slide text, and the pass/fail table is produced by a script — not
 typed by hand.
 
-> Status: **B0 (environment), B1 (ingest) and B2 (planner) done.** Web runtime, evaluation and USDZ
-> export land in batches B3–B6.
+> Status: **B0 (environment), B1 (ingest), B2 (planner) and B3 (web runtime) done.** Verification,
+> evaluation and USDZ export land in B4–B6.
+
+![LessonLens viewer](docs/demo-3d.png)
+
+Click an object, read the slide it came from. The screenshot above is produced by
+`tools/web_check.py`, which also asserts the click → quote path in a real browser.
 
 ## Pipeline
 
@@ -15,7 +20,7 @@ slide.pptx / .pdf
    ▼  extract.json   pages[] → blocks{type,text,bbox,rows}
    │  planner (schema-constrained; mock | cache | deepseek)   ← implemented (mock default)
    ▼  scene.json     objects[] / interactions[] / tasks[]  each object has claims{text,quote,page}
-   ├─► web/        (Three.js, GitHub Pages demo)
+   ├─► web/        (Three.js viewer, pick → quote, tasks, EN/ZH)   ← implemented
    ├─► export_usdz (usd-core)  ─► out/scene.usdz ─► usdchecker
    └─► verify + eval           ─► eval/report.md
 ```
@@ -38,9 +43,20 @@ python -m venv .venv
 # extract -> scene JSON (mock planner: deterministic, no API key)
 .venv\Scripts\python.exe -m lessonlens build eval/slides --out eval/scenes --root . --llm mock
 
+# browser gate: real Edge, real raycast click, screenshot
+.venv\Scripts\python.exe -X utf8 tools\web_check.py
+
 # gates
 .venv\Scripts\python.exe -m ruff check .
 .venv\Scripts\python.exe -m pytest -q
+```
+
+Open the viewer with a static server from the repository root (scenes are fetched from
+`../eval/scenes/`, so `file://` will not work):
+
+```powershell
+.venv\Scripts\python.exe -m http.server 8123
+# then http://127.0.0.1:8123/web/?scene=zh-09-tcp.pptx.json
 ```
 
 ## Evaluation corpus
@@ -96,3 +112,4 @@ in this environment — no key available).
 - `docs/b0-evidence.md` — environment, dependency versions, USDZ validator probe
 - `docs/b1-evidence.md` — corpus hashes, ingest statistics, test results, design notes
 - `docs/b2-evidence.md` — scene validation, planner determinism, the four defects fixed
+- `docs/b3-evidence.md` — browser gate (13/13), first-paint number, UI defects fixed, CDN deviation

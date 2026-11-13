@@ -11,20 +11,20 @@
     {
       "id": "o01",
       "label": "客户端发送 SYN",
-      "primitive": "sphere",
+      "primitive": "box",
       "position": [
         -4.05,
-        0.45,
+        0.35,
         -2.7
       ],
       "scale": [
         1.0,
-        0.9,
+        0.7,
         1.0
       ],
       "color": "#4e79a7",
       "page": 1,
-      "kind": "concept",
+      "kind": "definition",
       "claims": [
         {
           "text": "客户端发送 SYN，携带初始序号 seq = x。",
@@ -211,20 +211,20 @@
     {
       "id": "o09",
       "label": "阶段 | 触发 | 窗口变化",
-      "primitive": "sphere",
+      "primitive": "cylinder",
       "position": [
         -4.05,
-        0.558,
+        0.434,
         2.7
       ],
       "scale": [
         1.24,
-        1.116,
+        0.868,
         1.24
       ],
       "color": "#4e79a7",
       "page": 9,
-      "kind": "concept",
+      "kind": "table",
       "claims": [
         {
           "text": "阶段 | 触发 | 窗口变化 慢启动 | 连接开始或超时 | 每个 RTT 翻倍 拥塞避免 | cwnd ≥ ssthresh | 每个 RTT 加 1 MSS 快重传 | 三个重复 ACK | 立即重发丢失报文 快恢复 | 快重传之后 | ssthresh 减半后继续增长",
@@ -453,7 +453,7 @@
   "meta": {
     "generator": "mock",
     "object_count": 12,
-    "triangle_estimate": 10656,
+    "triangle_estimate": 8844,
     "notes": "Mock planner: one object per slide plus detail objects. Claim text is a prefix of the slide quote, not a paraphrase."
   }
 }

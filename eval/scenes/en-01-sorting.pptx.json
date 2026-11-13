@@ -11,20 +11,20 @@
     {
       "id": "o01",
       "label": "Given n comparable keys",
-      "primitive": "sphere",
+      "primitive": "box",
       "position": [
         -4.05,
-        0.45,
+        0.35,
         -2.7
       ],
       "scale": [
         1.0,
-        0.9,
+        0.7,
         1.0
       ],
       "color": "#4e79a7",
       "page": 1,
-      "kind": "concept",
+      "kind": "definition",
       "claims": [
         {
           "text": "Given n comparable keys, produce a permutation in non-decreasing order.",
@@ -161,20 +161,20 @@
     {
       "id": "o07",
       "label": "Algorithm | Average | Worst | Space | Stable",
-      "primitive": "sphere",
+      "primitive": "cylinder",
       "position": [
         1.35,
-        0.45,
+        0.35,
         0.0
       ],
       "scale": [
         1.0,
-        0.9,
+        0.7,
         1.0
       ],
       "color": "#b07aa1",
       "page": 7,
-      "kind": "concept",
+      "kind": "table",
       "claims": [
         {
           "text": "Algorithm | Average | Worst | Space | Stable Merge sort | Θ(n log n) | Θ(n log n) | Θ(n) | Yes Quick sort | Θ(n log n) | Θ(n^2) | Θ(log n)…",
@@ -453,7 +453,7 @@
   "meta": {
     "generator": "mock",
     "object_count": 12,
-    "triangle_estimate": 10656,
+    "triangle_estimate": 8844,
     "notes": "Mock planner: one object per slide plus detail objects. Claim text is a prefix of the slide quote, not a paraphrase."
   }
 }

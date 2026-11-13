@@ -48,6 +48,7 @@ PRIMITIVE_BY_KIND = {
     "definition": "box",
     "concept": "sphere",
     "example": "cylinder",
+    "table": "cylinder",
     "summary": "cone",
 }
 
@@ -139,13 +140,22 @@ def scene_digest(scene: dict[str, Any]) -> str:
 # --------------------------------------------------------------------------- mock rules
 
 
-def _kind_of(text: str, page_index: int, page_count: int) -> str:
-    lowered = text.casefold()
-    if page_index == page_count:
+def _kind_of(block: Any, page_index: int, page_count: int, primary: bool = True) -> str:
+    """Slide role drives the primitive: a deck opens with a definition and closes with a summary.
+
+    Only the primary object of a page may claim the page-level role, so the second object taken
+    from page 1 does not become a second "definition".
+    """
+    if block.rows:
+        return "table"
+    if page_index == page_count and primary:
         return "summary"
+    if page_index == 1 and primary:
+        return "definition"
+    lowered = block.text.casefold()
     if any(marker in lowered for marker in ("definition", "定义", "称为", "是指", "记作")):
         return "definition"
-    if any(marker in lowered for marker in ("example", "for instance", "例子", "例如", "例：")):
+    if any(marker in lowered for marker in ("example", "for instance", "e.g.", "例子", "例如", "例：")):
         return "example"
     return "concept"
 
@@ -225,8 +235,11 @@ class MockPlanner:
             )
 
         objects: list[dict[str, Any]] = []
+        seen_pages: set[int] = set()
         for index, (page, _block_index, block) in enumerate(picked):
-            kind = _kind_of(block.text, page.index, len(doc.pages))
+            primary = page.index not in seen_pages
+            seen_pages.add(page.index)
+            kind = _kind_of(block, page.index, len(doc.pages), primary=primary)
             primitive = PRIMITIVE_BY_KIND[kind]
             scale = 1.0 + 0.12 * (index % 3)
             height = 0.9 if primitive in {"sphere", "cone"} else 0.7

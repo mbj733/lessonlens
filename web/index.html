@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <title>LessonLens — deck to grounded 3D scene</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header id="bar">
+      <div class="brand">
+        <span class="dot"></span>
+        <strong data-i18n="app">LessonLens</strong>
+        <span class="tagline" data-i18n="tagline">deck → grounded 3D scene</span>
+      </div>
+      <div class="controls">
+        <label class="field">
+          <span data-i18n="deck">Deck</span>
+          <select id="deck-select" aria-label="deck"></select>
+        </label>
+        <button id="lang-toggle" class="ghost" type="button">中文</button>
+      </div>
+    </header>
+
+    <main id="stage">
+      <canvas id="view" aria-label="3D scene"></canvas>
+      <div id="hud">
+        <span id="hud-deck"></span>
+        <span id="hud-count"></span>
+        <span id="hud-hint" data-i18n="hint">Click an object to see the slide it came from</span>
+      </div>
+      <div id="loading" data-i18n="loading">Loading scene…</div>
+    </main>
+
+    <aside id="panel" aria-live="polite">
+      <section id="detail" class="card empty">
+        <p class="muted" data-i18n="noSelection">Nothing selected yet.</p>
+        <h2 id="detail-title"></h2>
+        <p id="detail-meta" class="meta"></p>
+        <blockquote id="detail-quote"></blockquote>
+        <p id="detail-claim" class="claim"></p>
+      </section>
+
+      <section class="card">
+        <h3 data-i18n="tasks">Tasks</h3>
+        <div id="task-list"></div>
+      </section>
+
+      <footer class="legend">
+        <span class="legend-item"><i class="swatch box"></i><span data-i18n="kindDefinition">definition</span></span>
+        <span class="legend-item"><i class="swatch sphere"></i><span data-i18n="kindConcept">concept</span></span>
+        <span class="legend-item"><i class="swatch cylinder"></i><span data-i18n="kindTable">table</span></span>
+        <span class="legend-item"><i class="swatch cone"></i><span data-i18n="kindSummary">summary</span></span>
+      </footer>
+    </aside>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
