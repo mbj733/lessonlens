@@ -1,0 +1,21 @@
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# runtime artifacts
+out/
+frames/
+*.tmp
+.eval-tmp/
+
+# os
+Thumbs.db
+.DS_Store
+
+# NOTE: cache/ and demo.gif / demo.mp4 are intentionally COMMITTED (CI is cache-only, demo is a deliverable).

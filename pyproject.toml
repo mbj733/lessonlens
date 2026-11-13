@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lessonlens"
+version = "0.1.0"
+description = "Turn slide decks into grounded, interactive 3D scenes (scene.json -> Three.js / USDZ)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Baijun Ma", email = "24262528@life.hkbu.edu.hk" }]
+keywords = ["3d", "education", "llm", "usdz", "grounding"]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+  "pdfplumber>=0.11.4",
+  "python-pptx>=1.0.2",
+  "jsonschema>=4.23",
+]
+
+[project.optional-dependencies]
+# Pinned: 26.11 removed pxr.UsdUtils.ComplianceChecker (the engine behind `usdchecker`),
+# and no usd-core wheel ships usdchecker.exe on Windows. 25.11 keeps both working.
+usd = ["usd-core==25.11"]
+dev = [
+  "pytest>=8.3",
+  "ruff>=0.7",
+  "pillow>=10.4",
+]
+
+[project.scripts]
+lessonlens = "lessonlens.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lessonlens"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
