@@ -1,0 +1,261 @@
+{
+  "generator": "tools/gen_samples.py",
+  "decks": [
+    {
+      "id": "en-01-sorting",
+      "lang": "en",
+      "title": "Sorting Algorithms",
+      "subtitle": "CS 201 · Algorithms · Lecture 4",
+      "page_titles": [
+        "The Sorting Problem",
+        "Comparison Lower Bound",
+        "Merge Sort",
+        "Quick Sort",
+        "Heap Sort",
+        "Insertion Sort",
+        "Complexity Table",
+        "Linear-Time Sorts",
+        "Choosing a Sort",
+        "Summary"
+      ],
+      "files": [
+        {
+          "path": "en-01-sorting.pptx",
+          "sha256": "633d55d16db2013e9f9586eaccf0fc0779898a34f56c9ff355bd33db1b497eda"
+        },
+        {
+          "path": "en-01-sorting.pdf",
+          "sha256": "196a4b46d27995b9895edf889afda2080aad9d3a59c8bcb2fb9f61ede914d627"
+        }
+      ]
+    },
+    {
+      "id": "en-02-bst",
+      "lang": "en",
+      "title": "Binary Search Trees",
+      "subtitle": "CS 201 · Data Structures · Lecture 6",
+      "page_titles": [
+        "Definition",
+        "Search",
+        "Insertion",
+        "Deletion",
+        "Traversals",
+        "Balanced Variants",
+        "Building a Balanced Tree",
+        "Cost Summary",
+        "Why Not a Sorted Array",
+        "Summary"
+      ],
+      "files": [
+        {
+          "path": "en-02-bst.pptx",
+          "sha256": "c0509f15149a3c1d327daf38444bf8c671df2d73269a15872a65112e6b5f6f4a"
+        }
+      ]
+    },
+    {
+      "id": "en-03-hashing",
+      "lang": "en",
+      "title": "Hash Tables",
+      "subtitle": "CS 201 · Data Structures · Lecture 8",
+      "page_titles": [
+        "Core Idea",
+        "Load Factor",
+        "Collision Resolution: Chaining",
+        "Collision Resolution: Open Addressing",
+        "Hash Functions",
+        "Operation Costs",
+        "Applications",
+        "Common Mistakes",
+        "Choosing a Strategy",
+        "Summary"
+      ],
+      "files": [
+        {
+          "path": "en-03-hashing.pptx",
+          "sha256": "ca6b251ebd4ab01ba80aa0f941af7f678114cc89da097bc662e24f39c479186d"
+        }
+      ]
+    },
+    {
+      "id": "en-04-shortest-paths",
+      "lang": "en",
+      "title": "Shortest Paths in Graphs",
+      "subtitle": "CS 202 · Algorithms · Lecture 9",
+      "page_titles": [
+        "Problem Statement",
+        "Breadth-First Search",
+        "Dijkstra: Idea",
+        "Dijkstra: Complexity",
+        "Negative Edges",
+        "All-Pairs Shortest Paths",
+        "A* Search",
+        "Practical Notes",
+        "Choosing the Algorithm",
+        "Summary"
+      ],
+      "files": [
+        {
+          "path": "en-04-shortest-paths.pptx",
+          "sha256": "915300fa1c4b91bdfff5525dd3a8fe4e29783fc9149e0af6ea5ed144501f2569"
+        },
+        {
+          "path": "en-04-shortest-paths.pdf",
+          "sha256": "6d992dd49a91cff269d5d3e637ce39453e677056047a7703c2b3922d7ed79879"
+        }
+      ]
+    },
+    {
+      "id": "en-05-processes-threads",
+      "lang": "en",
+      "title": "Processes and Threads",
+      "subtitle": "CS 210 · Operating Systems · Lecture 3",
+      "page_titles": [
+        "Process",
+        "Thread",
+        "Context Switch",
+        "Inter-Process Communication",
+        "Scheduling",
+        "Synchronisation",
+        "Deadlock",
+        "Comparing Costs",
+        "Design Checklist",
+        "Summary"
+      ],
+      "files": [
+        {
+          "path": "en-05-processes-threads.pptx",
+          "sha256": "f3b2332369ffaf3e12d5def87da244c220d46ea45a07a1a5ac58e429d1d5cc90"
+        }
+      ]
+    },
+    {
+      "id": "zh-06-binary-tree",
+      "lang": "zh",
+      "title": "二叉树与遍历",
+      "subtitle": "数据结构 · 第六讲",
+      "page_titles": [
+        "定义",
+        "基本性质",
+        "满二叉树与完全二叉树",
+        "先序遍历",
+        "中序遍历",
+        "后序遍历",
+        "层序遍历",
+        "由遍历序列还原",
+        "复杂度对比",
+        "小结"
+      ],
+      "files": [
+        {
+          "path": "zh-06-binary-tree.pptx",
+          "sha256": "f5ac01d82fce08c628fdc370a7773bfd968b6888ad72e4b51afc44ecec23e47a"
+        },
+        {
+          "path": "zh-06-binary-tree.pdf",
+          "sha256": "243e37838f827c95dbd91058f8e468de0c7ded825c0c8f499b399fedf98723b9"
+        }
+      ]
+    },
+    {
+      "id": "zh-07-dp",
+      "lang": "zh",
+      "title": "动态规划入门",
+      "subtitle": "算法设计 · 第七讲",
+      "page_titles": [
+        "适用条件",
+        "与分治的区别",
+        "状态与转移",
+        "例：斐波那契数列",
+        "例：0-1 背包",
+        "例：最长公共子序列",
+        "常见错误",
+        "优化方向",
+        "解题步骤",
+        "小结"
+      ],
+      "files": [
+        {
+          "path": "zh-07-dp.pptx",
+          "sha256": "e0add7fe24462477ab067629b96544d4e10e23d9f6b10c60b0ecbfbd2a613f47"
+        }
+      ]
+    },
+    {
+      "id": "zh-08-db-normalization",
+      "lang": "zh",
+      "title": "关系数据库：范式与索引",
+      "subtitle": "数据库系统 · 第八讲",
+      "page_titles": [
+        "函数依赖",
+        "第一范式",
+        "第二范式",
+        "第三范式",
+        "BCNF",
+        "B+ 树索引",
+        "索引代价",
+        "范式对比",
+        "执行计划",
+        "小结"
+      ],
+      "files": [
+        {
+          "path": "zh-08-db-normalization.pptx",
+          "sha256": "7c72ea1a6b086751b4fc524ffc414bdbf0dfb6a2c88c275cb470c874523998f7"
+        }
+      ]
+    },
+    {
+      "id": "zh-09-tcp",
+      "lang": "zh",
+      "title": "TCP 连接管理与拥塞控制",
+      "subtitle": "计算机网络 · 第九讲",
+      "page_titles": [
+        "三次握手",
+        "为什么是三次",
+        "四次挥手",
+        "TIME_WAIT 的作用",
+        "可靠传输",
+        "流量控制",
+        "拥塞控制",
+        "现代算法",
+        "状态与阶段",
+        "小结"
+      ],
+      "files": [
+        {
+          "path": "zh-09-tcp.pptx",
+          "sha256": "129b39e870a1440591273cf61150b7c593827d672caa78cfe2ca77caa29485a9"
+        },
+        {
+          "path": "zh-09-tcp.pdf",
+          "sha256": "011f7a4a35ac50712c1c95ff9bcc38cf0d9baffb8f09b896b2353befd29943ce"
+        }
+      ]
+    },
+    {
+      "id": "zh-10-backprop",
+      "lang": "zh",
+      "title": "神经网络与反向传播",
+      "subtitle": "机器学习 · 第十讲",
+      "page_titles": [
+        "前向传播",
+        "损失函数",
+        "梯度下降",
+        "链式法则",
+        "反向传播公式",
+        "激活函数与梯度",
+        "常见问题",
+        "实践检查清单",
+        "训练循环",
+        "小结"
+      ],
+      "files": [
+        {
+          "path": "zh-10-backprop.pptx",
+          "sha256": "e8b1106e3b0820cbc6c7744a67aff7de56375a84e326110b7192ccd79a78a7ac"
+        }
+      ]
+    }
+  ]
+}

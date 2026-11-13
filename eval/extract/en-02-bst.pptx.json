@@ -1,0 +1,605 @@
+{
+  "schema": "lessonlens/extract@1",
+  "source": "eval/slides/en-02-bst.pptx",
+  "kind": "pptx",
+  "title": "Binary Search Trees",
+  "lang": "en",
+  "pages": [
+    {
+      "index": 1,
+      "title": "Definition",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Definition",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A BST is a binary tree where every node's left subtree holds smaller keys and its right subtree holds larger keys.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Duplicates are excluded, or handled by one documented rule.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The ordering invariant holds recursively at every node.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 2,
+      "title": "Search",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Search",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Compare the target with the root: go left if smaller, right if larger.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The cost is Θ(h), where h is the height of the tree.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A balanced tree has h = Θ(log n); a degenerate chain has h = n.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 3,
+      "title": "Insertion",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Insertion",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Search for the key until a null child is reached, then attach a new leaf.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Insertion never restructures an existing node.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The running time equals the search time, Θ(h).",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 4,
+      "title": "Deletion",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Deletion",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A leaf is removed directly.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A node with one child is replaced by that child.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A node with two children is replaced by its in-order successor, then that node is deleted.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 5,
+      "title": "Traversals",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Traversals",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Pre-order visits node, left, right; in-order visits left, node, right; post-order visits left, right, node.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "In-order traversal of a BST yields keys in sorted order.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Each traversal costs Θ(n) time and Θ(h) stack space.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 6,
+      "title": "Balanced Variants",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Balanced Variants",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "AVL trees keep the height difference between siblings at most 1 using rotations.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Red-black trees relax that rule but guarantee h <= 2 log2(n + 1).",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "C++ std::map and Java TreeMap are red-black trees.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 7,
+      "title": "Building a Balanced Tree",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Building a Balanced Tree",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Sort the keys, then take the middle element as the root of each subtree.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "This builds a height-balanced BST in Θ(n log n), dominated by the sort.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Inserting pre-sorted keys into a plain BST produces a chain, so balance first.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 8,
+      "title": "Cost Summary",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Cost Summary",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "table",
+          "text": "Operation | Unbalanced | Balanced | Note\nSearch | O(n) | O(log n) | h is the only variable\nInsert | O(n) | O(log n) | plus rotations\nDelete | O(n) | O(log n) | successor swap\nIn-order walk | O(n) | O(n) | sorted output",
+          "level": 0,
+          "bbox": [
+            0.9,
+            1.9,
+            11.5,
+            2.75
+          ],
+          "rows": [
+            [
+              "Operation",
+              "Unbalanced",
+              "Balanced",
+              "Note"
+            ],
+            [
+              "Search",
+              "O(n)",
+              "O(log n)",
+              "h is the only variable"
+            ],
+            [
+              "Insert",
+              "O(n)",
+              "O(log n)",
+              "plus rotations"
+            ],
+            [
+              "Delete",
+              "O(n)",
+              "O(log n)",
+              "successor swap"
+            ],
+            [
+              "In-order walk",
+              "O(n)",
+              "O(n)",
+              "sorted output"
+            ]
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 9,
+      "title": "Why Not a Sorted Array",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Why Not a Sorted Array",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A sorted array searches in O(log n) but inserts in O(n) because of shifting.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A BST keeps both operations logarithmic when it stays balanced.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Cache locality still favours arrays for read-only workloads.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 10,
+      "title": "Summary",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Summary",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The BST invariant turns search into a guided path.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Height is the only performance variable: balance it or pay Θ(n).",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "In-order traversal is why BSTs support ordered iteration.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    }
+  ],
+  "stats": {
+    "pages": 10,
+    "blocks": 38,
+    "chars": 2124,
+    "types": {
+      "bullet": 27,
+      "table": 1,
+      "title": 10
+    },
+    "empty_pages": 0
+  },
+  "meta": {
+    "author": "LessonLens corpus generator",
+    "subject": "CS 201 · Data Structures · Lecture 6",
+    "slide_count": 10
+  }
+}

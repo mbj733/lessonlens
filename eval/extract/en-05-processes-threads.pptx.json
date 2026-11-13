@@ -1,0 +1,594 @@
+{
+  "schema": "lessonlens/extract@1",
+  "source": "eval/slides/en-05-processes-threads.pptx",
+  "kind": "pptx",
+  "title": "Processes and Threads",
+  "lang": "en",
+  "pages": [
+    {
+      "index": 1,
+      "title": "Process",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Process",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A process is a program in execution with its own virtual address space.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "It owns a page table, file descriptors, signal handlers and at least one thread.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Processes are isolated: one crash cannot corrupt another process's memory.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 2,
+      "title": "Thread",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Thread",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A thread is a schedulable execution context inside a process.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Threads of one process share code, data and open files, but not registers or stack.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Sharing makes communication cheap and data races possible.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 3,
+      "title": "Context Switch",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Context Switch",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The kernel saves registers and the program counter, then restores the next context.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A thread switch inside one process avoids changing the address space.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A process switch also invalidates TLB entries and swaps page tables, so it costs more.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 4,
+      "title": "Inter-Process Communication",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Inter-Process Communication",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Pipes and FIFOs move a byte stream between related processes.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Shared memory is the fastest form of IPC but requires explicit synchronisation.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Sockets generalise IPC across machines, while message queues decouple timing.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 5,
+      "title": "Scheduling",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Scheduling",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The scheduler picks a runnable thread by policy: round robin, priority or fair share.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Preemption uses a timer interrupt to guarantee responsiveness.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Blocking I/O moves a thread to the waiting state and yields the CPU.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 6,
+      "title": "Synchronisation",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Synchronisation",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A mutex protects a critical section: only one thread enters at a time.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A semaphore counts resources and may be signalled from a different thread.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Condition variables let a thread sleep until a predicate becomes true.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 7,
+      "title": "Deadlock",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Deadlock",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Deadlock needs mutual exclusion, hold and wait, no preemption and circular wait.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Breaking any one of the four conditions prevents it entirely.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Lock ordering and timeouts are the usual practical defences.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 8,
+      "title": "Comparing Costs",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Comparing Costs",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Creating a thread is cheaper than forking a process because nothing is copied.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Python's GIL serialises bytecode execution, so threads help with I/O but not CPU-bound work.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Processes buy isolation and CPU parallelism, threads buy shared-state concurrency.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 9,
+      "title": "Design Checklist",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Design Checklist",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Write down what state is shared before choosing between a process and a thread.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Prefer immutable messages over shared mutable memory when the cost allows it.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Bound every queue and every thread pool, or the failure mode becomes memory exhaustion.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 10,
+      "title": "Summary",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Summary",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Processes isolate, threads share.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Every piece of shared mutable state needs a synchronisation policy.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Pick the model by the failure you can tolerate, not by fashion.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    }
+  ],
+  "stats": {
+    "pages": 10,
+    "blocks": 40,
+    "chars": 2334,
+    "types": {
+      "bullet": 30,
+      "title": 10
+    },
+    "empty_pages": 0
+  },
+  "meta": {
+    "author": "LessonLens corpus generator",
+    "subject": "CS 210 · Operating Systems · Lecture 3",
+    "slide_count": 10
+  }
+}

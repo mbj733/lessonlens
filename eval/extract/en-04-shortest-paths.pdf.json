@@ -1,0 +1,594 @@
+{
+  "schema": "lessonlens/extract@1",
+  "source": "eval/slides/en-04-shortest-paths.pdf",
+  "kind": "pdf",
+  "title": "Shortest Paths in Graphs",
+  "lang": "en",
+  "pages": [
+    {
+      "index": 1,
+      "title": "Problem Statement",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Problem Statement",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            178.5,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Given a weighted graph, find the minimum-cost path from a source s to every vertex.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            479.228,
+            30.5
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The cost of a path is the sum of its edge weights.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            139.112,
+            326.5,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A distance is infinite when the vertex is unreachable.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            166.112,
+            351.5,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 2,
+      "title": "Breadth-First Search",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Breadth-First Search",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            210.0,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "BFS explores vertices in order of hop count.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            289.0,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "On an unweighted graph it computes shortest paths in O(V + E).",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            401.5,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "It needs a FIFO queue and a visited set.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            264.0,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 3,
+      "title": "Dijkstra: Idea",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Dijkstra: Idea",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            147.0,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Keep a tentative distance for every vertex: 0 for the source, infinity elsewhere.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            451.5,
+            30.5
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Repeatedly extract the unvisited vertex with the smallest tentative distance and relax its edges.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            139.112,
+            432.75,
+            30.5
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "It is correct only when all edge weights are non-negative.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            184.112,
+            376.5,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 4,
+      "title": "Dijkstra: Complexity",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Dijkstra: Complexity",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            210.0,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "With a binary heap the running time is O((V + E) log V).",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            364.0,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "With a Fibonacci heap it becomes O(E + V log V).",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            314.0,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The relaxation code is identical regardless of the priority queue.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            426.5,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 5,
+      "title": "Negative Edges",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Negative Edges",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            147.0,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Dijkstra may finalise a vertex too early when a negative edge exists.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            445.25,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Bellman-Ford relaxes every edge V - 1 times and runs in O(V E).",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            407.75,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Bellman-Ford also detects negative cycles: one more successful relaxation proves the answer is undefined.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            470.25,
+            30.5
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 6,
+      "title": "All-Pairs Shortest Paths",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "All-Pairs Shortest Paths",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            252.0,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Running Dijkstra from every source costs O(V (V + E) log V).",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            389.0,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Floyd-Warshall runs in Θ(V^3) and tolerates negative edges without negative cycles.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            432.75,
+            30.5
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Johnson's algorithm reweights the graph, then runs Dijkstra once per source.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            166.112,
+            439.0,
+            30.5
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 7,
+      "title": "A* Search",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "A* Search",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            94.5,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A* orders the queue by f(v) = g(v) + h(v): cost so far plus an estimate to the goal.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            476.5,
+            30.5
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The heuristic must be admissible, meaning it never overestimates the remaining cost.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            139.112,
+            439.0,
+            30.5
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "With a consistent heuristic, A* never needs to reopen a closed vertex.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            184.112,
+            451.5,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 8,
+      "title": "Practical Notes",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Practical Notes",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            157.5,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Sparse road networks use Dijkstra with a 4-ary heap plus bidirectional search.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            451.5,
+            30.5
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Contraction hierarchies precompute shortcuts and answer continental queries in microseconds.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            139.112,
+            432.75,
+            30.5
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Distances are stored in a hash map keyed by vertex id, because real graphs are huge.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            184.112,
+            476.5,
+            30.5
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 9,
+      "title": "Choosing the Algorithm",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Choosing the Algorithm",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            231.0,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Unweighted graph: BFS.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            151.5,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Non-negative weights: Dijkstra.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            207.75,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Negative weights: Bellman-Ford, or Johnson for all pairs.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            370.25,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 10,
+      "title": "Summary",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Summary",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            73.5,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "BFS for unweighted graphs, Dijkstra for non-negative weights, Bellman-Ford when edges can be negative.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            476.5,
+            30.5
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The priority queue dominates the running time.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            139.112,
+            301.5,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "An admissible heuristic turns a blind search into a guided one.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            166.112,
+            407.75,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    }
+  ],
+  "stats": {
+    "pages": 10,
+    "blocks": 40,
+    "chars": 2209,
+    "types": {
+      "bullet": 30,
+      "title": 10
+    },
+    "empty_pages": 0
+  },
+  "meta": {
+    "producer": "ReportLab PDF Library - (opensource)",
+    "creator": "tools/gen_samples.py",
+    "page_count": 10
+  }
+}

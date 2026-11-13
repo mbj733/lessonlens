@@ -1,0 +1,617 @@
+{
+  "schema": "lessonlens/extract@1",
+  "source": "eval/slides/en-01-sorting.pdf",
+  "kind": "pdf",
+  "title": "Sorting Algorithms",
+  "lang": "en",
+  "pages": [
+    {
+      "index": 1,
+      "title": "The Sorting Problem",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "The Sorting Problem",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            199.5,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Given n comparable keys, produce a permutation in non-decreasing order.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            457.75,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A comparison sort may only inspect keys through pairwise comparisons.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            445.25,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A stable sort keeps equal keys in their original relative order.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            414.0,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 2,
+      "title": "Comparison Lower Bound",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Comparison Lower Bound",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            231.0,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Any comparison sort needs Ω(n log n) comparisons in the worst case.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            439.0,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The decision tree has n! leaves, so its height is at least log2(n!).",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            439.0,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Stirling's approximation gives log2(n!) = Θ(n log n).",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            351.5,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 3,
+      "title": "Merge Sort",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Merge Sort",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            105.0,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Split the array in half, sort each half recursively, then merge.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            414.0,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The recurrence T(n) = 2T(n/2) + Θ(n) solves to Θ(n log n).",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            389.0,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "It is stable but needs Θ(n) auxiliary space.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            295.25,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 4,
+      "title": "Quick Sort",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Quick Sort",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            105.0,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Partition around a pivot, then sort the two sides independently.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            414.0,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Average Θ(n log n); worst case Θ(n^2) when the pivot is always extreme.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            470.25,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "In place apart from the recursion stack, but not stable.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            364.0,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 5,
+      "title": "Heap Sort",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Heap Sort",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            94.5,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Build a max-heap in Θ(n), then repeatedly extract the maximum.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            407.75,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Θ(n log n) in the worst case and in place.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            282.75,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Not stable, and its cache behaviour is worse than quick sort in practice.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            470.25,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 6,
+      "title": "Insertion Sort",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Insertion Sort",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            147.0,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Repeatedly take the next key and shift larger keys one slot to the right.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            470.25,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Θ(n^2) in the worst case but Θ(n) on nearly sorted input.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            382.75,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Stable and in place, which is why hybrid sorts use it for small runs.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            445.25,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 7,
+      "title": "Complexity Table",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Complexity Table",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            168.0,
+            21.0
+          ]
+        },
+        {
+          "type": "body",
+          "text": "Algorithm Average Worst Space Stable",
+          "level": 0,
+          "bbox": [
+            56.024,
+            101.831,
+            426.083,
+            10.5
+          ]
+        },
+        {
+          "type": "body",
+          "text": "Merge sort Θ(n log n) Θ(n log n) Θ(n) Yes",
+          "level": 0,
+          "bbox": [
+            56.024,
+            123.831,
+            410.333,
+            10.5
+          ]
+        },
+        {
+          "type": "body",
+          "text": "Quick sort Θ(n log n) Θ(n^2) Θ(log n) No",
+          "level": 0,
+          "bbox": [
+            56.024,
+            145.831,
+            405.083,
+            10.5
+          ]
+        },
+        {
+          "type": "body",
+          "text": "Heap sort Θ(n log n) Θ(n log n) Θ(1) No",
+          "level": 0,
+          "bbox": [
+            56.024,
+            167.831,
+            405.083,
+            10.5
+          ]
+        },
+        {
+          "type": "body",
+          "text": "Insertion sort Θ(n^2) Θ(n^2) Θ(1) Yes",
+          "level": 0,
+          "bbox": [
+            56.024,
+            189.831,
+            410.333,
+            10.5
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 8,
+      "title": "Linear-Time Sorts",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Linear-Time Sorts",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            178.5,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Counting sort runs in Θ(n + k) when keys are integers in [0, k).",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            420.25,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Radix sort sorts digit by digit from the least significant position.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            439.0,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Both are non-comparison sorts, so the Ω(n log n) bound does not apply.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            457.75,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 9,
+      "title": "Choosing a Sort",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Choosing a Sort",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            157.5,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Nearly sorted input: insertion sort is close to Θ(n).",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            351.5,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "External sorting on disk: merge sort minimises sequential I/O.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            401.5,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Hard real-time guarantees: heap sort avoids the quadratic worst case.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            445.25,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 10,
+      "title": "Summary",
+      "size": [
+        595.276,
+        841.89
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Summary",
+          "level": 0,
+          "bbox": [
+            57.024,
+            54.308,
+            73.5,
+            21.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Comparison sorts cannot beat Ω(n log n) in the worst case.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            94.112,
+            382.75,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Merge sort trades memory for stability and predictable time.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            121.112,
+            389.0,
+            13.373
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Quick sort is usually fastest but must guard against bad pivots.",
+          "level": 0,
+          "bbox": [
+            59.024,
+            148.112,
+            414.0,
+            13.373
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    }
+  ],
+  "stats": {
+    "pages": 10,
+    "blocks": 42,
+    "chars": 2066,
+    "types": {
+      "body": 5,
+      "bullet": 27,
+      "title": 10
+    },
+    "empty_pages": 0
+  },
+  "meta": {
+    "producer": "ReportLab PDF Library - (opensource)",
+    "creator": "tools/gen_samples.py",
+    "page_count": 10
+  }
+}

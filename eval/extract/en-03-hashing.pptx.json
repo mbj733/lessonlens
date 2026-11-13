@@ -1,0 +1,605 @@
+{
+  "schema": "lessonlens/extract@1",
+  "source": "eval/slides/en-03-hashing.pptx",
+  "kind": "pptx",
+  "title": "Hash Tables",
+  "lang": "en",
+  "pages": [
+    {
+      "index": 1,
+      "title": "Core Idea",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Core Idea",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "A hash function maps a key to an index in an array of m buckets.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Lookup, insertion and deletion are O(1) in expectation while the table is not too full.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The hash function must be deterministic and spread keys evenly.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 2,
+      "title": "Load Factor",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Load Factor",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Load factor α = n / m, where n keys are stored in m buckets.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Chaining stays fast while α is below about 1; open addressing wants α below 0.7.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "When α exceeds the threshold, rehash into a table roughly twice as large.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 3,
+      "title": "Collision Resolution: Chaining",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Collision Resolution: Chaining",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Each bucket stores a list of all keys mapped to it.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The average search cost is Θ(1 + α).",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Java's HashMap converts a long chain into a red-black tree once it exceeds 8 entries.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 4,
+      "title": "Collision Resolution: Open Addressing",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Collision Resolution: Open Addressing",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "On collision, probe the next free slot instead of allocating a node.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Linear probing is cache friendly but suffers from primary clustering.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Deletion needs tombstones, because an emptied slot must not break a probe sequence.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 5,
+      "title": "Hash Functions",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Hash Functions",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Division method: h(k) = k mod m, with m preferably prime.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Multiplication method: multiply by a constant in (0, 1) and take the fractional part.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Python randomises string hashing per process to defeat hash-flooding attacks.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 6,
+      "title": "Operation Costs",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Operation Costs",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "table",
+          "text": "Operation | Average | Worst | Note\nSearch | Θ(1) | Θ(n) | all keys collide\nInsert | Θ(1) | Θ(n) | may trigger a rehash\nDelete | Θ(1) | Θ(n) | tombstones\nIterate | Θ(n + m) | Θ(n + m) | visits empty buckets",
+          "level": 0,
+          "bbox": [
+            0.9,
+            1.9,
+            11.5,
+            2.75
+          ],
+          "rows": [
+            [
+              "Operation",
+              "Average",
+              "Worst",
+              "Note"
+            ],
+            [
+              "Search",
+              "Θ(1)",
+              "Θ(n)",
+              "all keys collide"
+            ],
+            [
+              "Insert",
+              "Θ(1)",
+              "Θ(n)",
+              "may trigger a rehash"
+            ],
+            [
+              "Delete",
+              "Θ(1)",
+              "Θ(n)",
+              "tombstones"
+            ],
+            [
+              "Iterate",
+              "Θ(n + m)",
+              "Θ(n + m)",
+              "visits empty buckets"
+            ]
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 7,
+      "title": "Applications",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Applications",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Symbol tables in compilers and interpreters.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Set membership, plus Bloom filters when an approximate answer is enough.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Caches combine hashing with an eviction policy such as LRU.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 8,
+      "title": "Common Mistakes",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Common Mistakes",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Using a mutable object as a key breaks the invariant once it is mutated.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Assuming O(1) worst case: adversarial keys can force Θ(n) per operation.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Forgetting that iteration order is arbitrary, which makes output unstable between runs.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 9,
+      "title": "Choosing a Strategy",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Choosing a Strategy",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Chaining is simpler to delete from and tolerates high load factors.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Open addressing is faster when the table fits in cache and keys are small.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Untrusted input requires a keyed hash such as SipHash, not a plain polynomial hash.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    },
+    {
+      "index": 10,
+      "title": "Summary",
+      "size": [
+        13.333,
+        7.5
+      ],
+      "blocks": [
+        {
+          "type": "title",
+          "text": "Summary",
+          "level": 0,
+          "bbox": [
+            0.6,
+            0.45,
+            12.1,
+            1.05
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Hashing turns a search problem into an indexing problem.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "Collision handling and load factor decide the real constant factors.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        },
+        {
+          "type": "bullet",
+          "text": "The worst case stays linear, so untrusted input needs keyed hashing.",
+          "level": 0,
+          "bbox": [
+            0.85,
+            1.85,
+            11.6,
+            5.0
+          ]
+        }
+      ],
+      "flags": {
+        "text_layer": true
+      }
+    }
+  ],
+  "stats": {
+    "pages": 10,
+    "blocks": 38,
+    "chars": 2271,
+    "types": {
+      "bullet": 27,
+      "table": 1,
+      "title": 10
+    },
+    "empty_pages": 0
+  },
+  "meta": {
+    "author": "LessonLens corpus generator",
+    "subject": "CS 201 · Data Structures · Lecture 8",
+    "slide_count": 10
+  }
+}
