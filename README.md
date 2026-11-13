@@ -4,8 +4,7 @@
 checked back against the source slide text, and the pass/fail table is produced by a script — not
 typed by hand.
 
-> Status: **B0 (environment), B1 (ingest), B2 (planner), B3 (web runtime) and B4 (verify + eval)
-> done.** USDZ export and publishing land in B5–B6.
+> Status: **B0–B5 done.** B6 (Pages, demo GIF/MP4, release) is the remaining batch.
 
 ![LessonLens viewer](docs/demo-3d.png)
 
@@ -21,7 +20,7 @@ slide.pptx / .pdf
    │  planner (schema-constrained; mock | cache | deepseek)   ← implemented (mock default)
    ▼  scene.json     objects[] / interactions[] / tasks[]  each object has claims{text,quote,page}
    ├─► web/        (Three.js viewer, pick → quote, tasks, EN/ZH)   ← implemented
-   ├─► export_usdz (usd-core)  ─► out/scene.usdz ─► usdchecker
+   ├─► export_usdz (usd-core)  ─► out/*.usdz ─► usdchecker engine  ← implemented
    └─► verify + eval           ─► eval/report.md                    ← implemented
 ```
 
@@ -48,6 +47,10 @@ python -m venv .venv
 
 # verify + metrics -> eval/report.md (numbers are computed, never typed)
 .venv\Scripts\python.exe -m lessonlens eval
+
+# scene -> USDZ + compliance check -> eval/usdz-report.json
+.venv\Scripts\python.exe -m pip install -e ".[usd]"
+.venv\Scripts\python.exe -m lessonlens export
 
 # gates
 .venv\Scripts\python.exe -m ruff check .
@@ -120,6 +123,16 @@ The last row is the one that makes the others credible: known-good scenes are de
 are perfect partly because the default mock planner cannot hallucinate — the report says that in its
 "Honest notes" section instead of hiding it.
 
+## Spatial output
+
+`python -m lessonlens export` writes one `.usdz` per scene into `out/` (14 packages, 0.16 MB total)
+and validates each with the engine `usdchecker` wraps: **14/14 PASS, 0 errors, 0 warnings**. Each
+object keeps its claim inside the file (`customData["lessonlens"]`), so the 3D asset carries its own
+provenance.
+
+Honest scope: no iPhone, no Vision Pro and no macOS here, so this proves the package is
+ARKit-compliant, **not** that it was opened on a device. See `docs/b5-evidence.md`.
+
 ## Limitations
 
 - No macOS / Xcode / Vision Pro here: spatial output is proven with **USDZ + `usdchecker`**, not a
@@ -136,3 +149,4 @@ are perfect partly because the default mock planner cannot hallucinate — the r
 - `docs/b2-evidence.md` — scene validation, planner determinism, the four defects fixed
 - `docs/b3-evidence.md` — browser gate (13/13), first-paint number, UI defects fixed, CDN deviation
 - `docs/b4-evidence.md` — three gates, metric table, the negative-control harness, tokenizer defect
+- `docs/b5-evidence.md` — USDZ export, the two packaging defects, device-verification limits

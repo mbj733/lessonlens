@@ -9,10 +9,12 @@ dist/
 .ruff_cache/
 
 # runtime artifacts
-out/
+out/_layers/
 frames/
 *.tmp
 .eval-tmp/
+
+# NOTE: out/*.usdz are committed so Pages can serve a clickable AR asset.
 
 # os
 Thumbs.db

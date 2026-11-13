@@ -62,7 +62,8 @@ metrics above would be measuring nothing.
 
 ## USDZ
 
-No `out/usdz-report.json` found; run `python -m lessonlens export` (batch B5).
+- package: `14 packages`
+- usdchecker-equivalent engine: **PASS** (errors: 0, warnings: 0)
 
 ## Definitions
 

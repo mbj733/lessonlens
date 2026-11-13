@@ -145,6 +145,34 @@ def _cmd_eval(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_export(args: argparse.Namespace) -> int:
+    try:
+        from .export_usdz import export_all, write_aggregate
+    except ImportError as exc:  # usd-core is an extra
+        print(f"usd-core is not installed ({exc}); run `pip install -e .[usd]`", file=sys.stderr)
+        return 2
+
+    reports = export_all(args.scenes, args.out, work_dir=args.work_dir)
+    if not reports:
+        print(f"no scenes found in {args.scenes}", file=sys.stderr)
+        return 1
+    target = write_aggregate(reports, args.report)
+
+    width = max(len(item["deck"]) for item in reports)
+    print(f"{'deck':<{width}}  objects  bytes  errors  warnings  status")
+    for item in reports:
+        print(
+            f"{item['deck']:<{width}}  {item['objects']:>7}  {item['bytes']:>5}  "
+            f"{item['errors']:>6}  {item['warnings']:>8}  {item['status']}"
+        )
+    failures = sum(1 for item in reports if item["status"] != "PASS")
+    print(f"\n{len(reports)} packages -> {args.out}   report -> {target}")
+    if failures:
+        print(f"FAIL: {failures} package(s) did not pass the compliance check", file=sys.stderr)
+        return 1
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="lessonlens", description="Slide deck -> grounded 3D scene.")
     parser.add_argument("--version", action="version", version=f"lessonlens {__version__}")
@@ -174,7 +202,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--web-metrics", default="eval/web-metrics.json", help="browser gate output (optional)"
     )
     evaluate_cmd.add_argument(
-        "--usdz", default="out/usdz-report.json", help="USDZ check output (optional)"
+        "--usdz", default="eval/usdz-report.json", help="USDZ check output (optional)"
     )
     evaluate_cmd.add_argument(
         "--cache-only",
@@ -182,6 +210,15 @@ def build_parser() -> argparse.ArgumentParser:
         help="use the committed scenes as-is (the only supported mode; kept for CI parity)",
     )
     evaluate_cmd.set_defaults(func=_cmd_eval)
+
+    export_cmd = sub.add_parser("export", help="export every scene to USDZ and validate the packages")
+    export_cmd.add_argument("--scenes", default="eval/scenes", help="directory of scene JSON")
+    export_cmd.add_argument("--out", default="out", help="directory for .usdz packages")
+    export_cmd.add_argument(
+        "--report", default="eval/usdz-report.json", help="aggregate compliance report path"
+    )
+    export_cmd.add_argument("--work-dir", default=None, help="where intermediate .usda layers go")
+    export_cmd.set_defaults(func=_cmd_export)
     return parser
 
 
