@@ -4,11 +4,17 @@
 checked back against the source slide text, and the pass/fail table is produced by a script — not
 typed by hand.
 
-> Status: **B0–B5 done.** B6 (Pages, demo GIF/MP4, release) is the remaining batch.
+![LessonLens demo: click an object, read the slide it came from](docs/demo.gif)
+
+*10 s loop recorded by `tools/make_demo.py` (Playwright frames → GIF/MP4). No screen recorder, no
+hand editing.*
+
+> Status: **B0–B5 done, B6 local done.** Publishing to GitHub Pages is blocked on credentials; see
+> the bottom of this file.
 
 ![LessonLens viewer](docs/demo-3d.png)
 
-Click an object, read the slide it came from. The screenshot above is produced by
+Click an object, read the slide it came from. The still above is produced by
 `tools/web_check.py`, which also asserts the click → quote path in a real browser.
 
 ## Pipeline
@@ -135,12 +141,15 @@ ARKit-compliant, **not** that it was opened on a device. See `docs/b5-evidence.m
 
 ## Limitations
 
-- No macOS / Xcode / Vision Pro here: spatial output is proven with **USDZ + `usdchecker`**, not a
-  device build. Anything not verified on hardware is labelled as such.
-- The default planner will be **deterministic mock**; no API key is needed to reproduce every number.
+- No macOS / Xcode / Vision Pro here: spatial output is proven with **USDZ + the `usdchecker` engine**,
+  not a device build; nothing was opened on hardware.
+- The default planner is a **deterministic mock**; no API key is needed to reproduce every number, and
+  the `deepseek` adapter has never been called against the live API in this environment.
 - Ingest does **no OCR**: a scanned PDF page yields zero blocks and is flagged `text_layer=false`.
 - `usdchecker` ships no Windows binary; the same `UsdUtils.ComplianceChecker` engine is used instead
   (see `docs/b0-evidence.md`).
+- GitHub Actions has not executed yet (the first push is blocked on credentials), so CI being green is
+  **unverified**; everything else in this README was run locally and is reproducible.
 
 ## Evidence
 
@@ -150,3 +159,24 @@ ARKit-compliant, **not** that it was opened on a device. See `docs/b5-evidence.m
 - `docs/b3-evidence.md` — browser gate (13/13), first-paint number, UI defects fixed, CDN deviation
 - `docs/b4-evidence.md` — three gates, metric table, the negative-control harness, tokenizer defect
 - `docs/b5-evidence.md` — USDZ export, the two packaging defects, device-verification limits
+- `docs/b6-evidence.md` — demo GIF/MP4 gates, landing page, the publishing blocker
+
+## Publishing status
+
+The repository is created and the first commit is local:
+
+```
+https://github.com/mbj733/lessonlens        (created, 0 commits)
+E:\alsl项目\lessonlens                       (111 tracked files, 7 commits)
+```
+
+`git push` cannot authenticate from this machine: no credential helper entry, no SSH key, no
+`GITHUB_TOKEN`. Run once, then enable Pages (Settings → Pages → *Deploy from a branch* → `main` / `/`):
+
+```powershell
+cd E:\alsl项目\lessonlens
+git push -u origin main
+```
+
+After that the viewer is at `https://mbj733.github.io/lessonlens/` (the root `index.html` forwards to
+`web/`, where the deck picker and the committed scenes live).

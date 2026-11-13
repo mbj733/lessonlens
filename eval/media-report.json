@@ -1,0 +1,20 @@
+{
+  "frames": 64,
+  "frame_ms": 160,
+  "gif": {
+    "path": "docs\\demo.gif",
+    "captured": 64,
+    "bytes": 1870541,
+    "frames": 32,
+    "duration_s": 10.24
+  },
+  "mp4": {
+    "path": "docs\\demo.mp4",
+    "bytes": 156929,
+    "duration_s": 10.24,
+    "frames": 64,
+    "codec": "h264",
+    "size": "960x600"
+  },
+  "ok": true
+}
