@@ -9,8 +9,8 @@ typed by hand.
 *10 s loop recorded by `tools/make_demo.py` (Playwright frames → GIF/MP4). No screen recorder, no
 hand editing.*
 
-> Status: **B0–B5 done, B6 local done.** Publishing to GitHub Pages is blocked on credentials; see
-> the bottom of this file.
+> Status: **B0–B6 done and deployed.** Viewer: <https://mbj733.github.io/lessonlens/> ·
+> CI: <https://github.com/mbj733/lessonlens/actions> · release: <https://github.com/mbj733/lessonlens/releases/tag/v0.1.0>
 
 ![LessonLens viewer](docs/demo-3d.png)
 
@@ -161,22 +161,15 @@ ARKit-compliant, **not** that it was opened on a device. See `docs/b5-evidence.m
 - `docs/b5-evidence.md` — USDZ export, the two packaging defects, device-verification limits
 - `docs/b6-evidence.md` — demo GIF/MP4 gates, landing page, the publishing blocker
 
-## Publishing status
+## Live
 
-The repository is created and the first commit is local:
+| what | where | evidence |
+|---|---|---|
+| viewer | <https://mbj733.github.io/lessonlens/> | Pages build `built`, root 200 + meta redirect |
+| deck | <https://mbj733.github.io/lessonlens/web/?scene=en-01-sorting.pptx.json> | live click test: 12 objects, quote matched, no console errors |
+| report | <https://mbj733.github.io/lessonlens/eval/report.md> | 200 `text/markdown` |
+| sample USDZ | <https://mbj733.github.io/lessonlens/out/zh-09-tcp.pptx.usdz> | 200 `model/vnd.usdz+zip` |
+| CI | <https://github.com/mbj733/lessonlens/actions/workflows/ci.yml> | run on `89f3c8b`: **success** |
+| release | <https://github.com/mbj733/lessonlens/releases/tag/v0.1.0> | tag + notes |
 
-```
-https://github.com/mbj733/lessonlens        (created, 0 commits)
-E:\alsl项目\lessonlens                       (111 tracked files, 7 commits)
-```
-
-`git push` cannot authenticate from this machine: no credential helper entry, no SSH key, no
-`GITHUB_TOKEN`. Run once, then enable Pages (Settings → Pages → *Deploy from a branch* → `main` / `/`):
-
-```powershell
-cd E:\alsl项目\lessonlens
-git push -u origin main
-```
-
-After that the viewer is at `https://mbj733.github.io/lessonlens/` (the root `index.html` forwards to
-`web/`, where the deck picker and the committed scenes live).
+![Live viewer on GitHub Pages](docs/live-pages.png)
